@@ -1,0 +1,48 @@
+// Grid view helper
+.row.dev-grid-viewer
+  .display-grid
+    - 1.upto(31) do |i|
+      .small-1.column
+
+#page.home
+  .b-header
+    // Menu
+    .b-top-menu
+      .row
+        .logo
+          = image_tag 'logo', width: '100%', height: 'auto'
+        .small-20.small-offset-6.columns
+          ul.b-menu
+            li
+              a href="#" Kompetenzen
+            li
+              a href="#" Das team
+            li
+              a href="#" karriere
+            li
+              a href="#" kontakt
+            li
+              a href="#" anfahrt
+            li
+              a href="#" impressum
+
+    //Slider
+    .row.fluid.collapse
+      .small-31.columns
+        .b-slider
+          - 1.upto(2) do |i|
+            div class="slide slide-id-#{i}"
+              .content
+                .main-text
+                  |EINE STUNDE MIT UNS: WIR SHAUFEN 10 MINUTEN AUF DIE VERGANGENHEIT.
+                  br
+                  | 50 MINUTEN KÜMMERN WIR UNS UM IHRE ZUKUNFT.
+                .quote-by
+                  | BIEBERSTEIN & STADLERKKK
+
+
+
+
+
+
+

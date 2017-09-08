@@ -1,0 +1,41 @@
+// 100% width for flexible layouts
+.row {
+  &.fluid {
+    @include grid-row($behavior: nest-collapse);
+  }
+
+  .column:first-child {
+    padding-left: 0;
+  }
+
+  .row .column:last-child {
+    padding-right: 0;
+  }
+}
+
+.column, .columns{
+  min-height: 1px;
+}
+
+// Making grid visible
+.dev-grid-viewer {
+  position: relative;
+
+  .display-grid {
+    width: 100%;
+    position: absolute;
+    z-index: 999;
+
+    .column {
+      height: 9000px;
+
+      &:after {
+        content: '';
+        display: block;
+        border-left: 1px solid #96c8ce;
+        border-right: 1px solid #96c8ce;
+        height: 9000px;
+      }
+    }
+  }
+}
