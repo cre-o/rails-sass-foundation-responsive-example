@@ -38,7 +38,6 @@ gem 'slim-rails', '~> 3.1.2'
 gem 'active_link_to'
 
 # CSS features
-gem 'foundation-rails', '~> 6.4'
 gem 'bourbon'
 
 # JS features

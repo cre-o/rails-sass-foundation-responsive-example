@@ -1,0 +1,2068 @@
+// Foundation functions
+@import '../foundation/application';
+@import 'mixins';
+@import 'animations';
+
+$black: #0a0900;
+$gold: #ad986e;
+$blue: #001624;
+$white: #fff;
+
+$oswald-bold-font: 'oswaldbold';
+$oswald-light-font: 'oswaldlight';
+$carrois-gothic-font: 'carrois-gothic-regular';
+$trade-gothic-light-font: 'trade-gothic-lt-light';
+
+// Display grid
+.dev-grid-viewer {
+  // @include grid-viewer;
+}
+
+html {
+  font-size: 16px; // Rem base
+}
+
+body {
+  font-family: $carrois-gothic-font;
+}
+
+h1, h2, h3 {
+  text-transform: uppercase;
+}
+
+#page {
+  > div:not(.b-header, .b-competences, .b-map), > footer {
+    @include breakpoint(medium only) {
+      padding-left: $medium-page-spacing;
+      padding-right: $medium-page-spacing;
+    }
+
+    @include breakpoint(small only) {
+      padding-left: $small-page-spacing;
+      padding-right: $small-page-spacing;
+    }
+  }
+
+  > .b-competences {
+    @include breakpoint(medium only) {
+      margin-left: $medium-page-spacing;
+      margin-right: $medium-page-spacing;
+    }
+
+    @include breakpoint(small only) {
+      margin-left: $small-page-spacing;
+      margin-right: $small-page-spacing;
+    }
+  }
+
+  > .b-lawyers {
+    @include breakpoint(small only) {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+  }
+}
+
+.b-header {
+
+  ul {
+    margin-left: 0;
+    margin-bottom: 0;
+  }
+
+  .b-top-menu {
+    background-color: $white;
+    height: 80px;
+    padding-top: 16px;
+
+    @include breakpoint(large) {
+      padding-top: 40px;
+      height: 153px;
+      border-bottom: 1px solid $gold;
+    }
+
+    @include breakpoint(medium only) {
+      padding-top: 22px;
+      height: 125px;
+    }
+
+    .logo {
+      float: left;
+      margin-left: $small-page-spacing;
+      width: 88px;
+      height: 50px;
+
+      @include breakpoint(medium only) {
+        margin-left: $medium-page-spacing;
+        width: 138px;
+        height: 80px;
+      }
+
+      @include breakpoint(large) {
+        margin-left: -244px;
+        width: 154px;
+        height: 88px;
+      }
+    }
+
+    ul.b-menu {
+      display: block;
+      list-style: none;
+      font: 18px/48px $oswald-bold-font;
+      margin-top: 10px;
+
+      a {
+        color: $black;
+        text-decoration: none;
+
+        &:hover {
+          color: $gold;
+        }
+      }
+
+      > li {
+        display: inline-block;
+        text-transform: uppercase;
+        padding-right: 15px;
+        border-right: 1px solid $gold;
+
+        &:not(:first-child) {
+          padding-left: 30px;
+        }
+
+        &:last-child {
+          border-right: none;
+        }
+      }
+    }
+
+  }
+
+  .b-slider {
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    margin: auto;
+    position: relative;
+    height: 370px;
+
+    @include breakpoint(medium) {
+      height: 780px;
+    }
+
+    .slick-prev, .slick-next {
+      background-size: cover;
+      z-index: 99;
+      width: 12px;
+      height: 18px;
+      top: 62%;
+
+      @include breakpoint(medium) {
+        top: 59%;
+        width: 22px;
+        height: 35px;
+      }
+
+      @include breakpoint(large) {
+        top: 72%;
+      }
+
+      &:before {
+        content: '';
+      }
+    }
+
+    .slick-prev {
+      background-image: url('l-arrow.png');
+      left: 8px;
+
+      @include breakpoint(medium) {
+        left: 21px;
+      }
+
+      @include breakpoint(large) {
+        left: calc(50% - 510px - 27px);
+      }
+    }
+
+    .slick-next {
+      background-image: url('r-arrow.png');
+      right: 8px;
+
+      @include breakpoint(medium) {
+        right: 21px;
+      }
+
+      @include breakpoint(large) {
+        right: calc(50% - 510px - 23px);
+      }
+    }
+
+    .slick-list,
+    .slick-track,
+    .slick-slide {
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+    }
+
+    &.slick-slider {
+      margin-bottom: 0;
+    }
+
+    .slide-id-1 {
+      background: url('slider-image-1.jpg') no-repeat;
+    }
+
+    .slide-id-2 {
+      background: url('slider-image-2.jpg') no-repeat;
+    }
+
+    .slide {
+      height: 370px;
+      background-size: cover;
+      background-position: center;
+
+      @include breakpoint(medium) {
+        height: 780px;
+      }
+
+      .content {
+        margin-top: 190px;
+
+        @include breakpoint(medium only) {
+          margin-top: 413px;
+        }
+
+        @include breakpoint(large) {
+          margin-top: 500px;
+        }
+
+        @include quoted-content;
+      }
+    }
+  }
+}
+
+.b-competences {
+  margin-top: 21px;
+
+  @include breakpoint(medium) {
+    @include target-padding;
+  }
+
+  @include breakpoint(medium only) {
+    border-bottom: 2px solid $gold;
+    padding-bottom: 18px;
+    margin-top: 35px;
+  }
+
+  @include breakpoint(large) {
+    margin-top: 110px;
+  }
+
+  h1 {
+    font: rem-calc(21px) unquote('/') rem-calc(18px) $oswald-bold-font;
+
+    @include breakpoint(medium) {
+      font: 36px / 36px $oswald-bold-font;
+    }
+
+    color: $gold;
+
+    @include breakpoint(large) {
+      margin-top: 142px;
+      padding-left: 5px;
+    }
+  }
+
+  .hidden-anchor {
+    @include target-padding;
+  }
+
+  nav.top-menu {
+    float: left;
+    width: 100%;
+
+    @include breakpoint(medium only) {
+      border-top: 2px solid $gold;
+      border-bottom: 2px solid $gold;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    @include breakpoint(large) {
+      border-left: 2px solid $gold;
+    }
+
+    // Little color-change hack
+    .slick-slide.stay-color a {
+      color: $black !important;
+    }
+
+    ul {
+      display: block;
+      float: left;
+
+      @include breakpoint(large) {
+        margin-top: -6px;
+      }
+
+      @include breakpoint(small only) {
+        float: none;
+      }
+    }
+
+    ul:nth-child(1) {
+      // @include breakpoint(medium) {
+      //   margin-right: grid-column(2);
+      // }
+
+      // @include breakpoint(690px) {
+      //   margin-right: grid-column(3);
+      // }
+
+      // @include breakpoint(740px) {
+      //   margin-right: grid-column(4);
+      // }
+
+      // @include breakpoint(790px) {
+      //   margin-right: grid-column(5);
+      // }
+
+      // @include breakpoint(860px) {
+      //   margin-right: grid-column(6);
+      // }
+
+      // @include breakpoint(940px) {
+      //   margin-right: grid-column(7);
+      // }
+
+      @include breakpoint(large) {
+        margin-left: grid-column(1);
+        // margin-right: grid-column(3);
+      }
+
+
+      @include breakpoint(small only) {
+        &:first-child {
+          border-top: 1px solid $gold;
+        }
+      }
+    }
+
+    // ul:nth-child(2) {
+    //   @include breakpoint(medium) {
+    //     margin-right: grid-column(2);
+    //   }
+
+    //   @include breakpoint(690px) {
+    //     margin-right: grid-column(3);
+    //   }
+
+    //   @include breakpoint(740px) {
+    //     margin-right: grid-column(4);
+    //   }
+
+    //   @include breakpoint(790px) {
+    //     margin-right: grid-column(5);
+    //   }
+
+    //   @include breakpoint(860px) {
+    //     margin-right: grid-column(6);
+    //   }
+
+    //   @include breakpoint(940px) {
+    //     margin-right: grid-column(7);
+    //   }
+
+    //   @include breakpoint(large) {
+    //     margin-right: grid-column(3);
+    //   }
+    // }
+
+    .slick-track {
+      @include breakpoint(medium) {
+        display: flex;
+        flex-flow: row wrap;
+
+        .slick-slide {
+          flex-basis: 30%;
+
+          &:nth-child(2) { order: 1; }
+          &:nth-child(3) { order: 4; }
+          &:nth-child(4) { order: 7; }
+          &:nth-child(5) { order: 10; }
+          &:nth-child(6) { order: 2; }
+          &:nth-child(7) { order: 5; }
+          &:nth-child(8) { order: 8; }
+          &:nth-child(9) { order: 11; }
+          &:nth-child(10) { order: 3; flex-basis: 40%; }
+          &:nth-child(11) { order: 6; flex-basis: 40%; }
+          &:nth-child(12) { order: 9; flex-basis: 40%; }
+        }
+      }
+
+      @include breakpoint(large) {
+        .slick-slide {
+          &:nth-child(5) { order: 10; margin-top: -32px; }
+          &:nth-child(9) { order: 11; margin-top: -32px; }
+        }
+      }
+
+      @include breakpoint(medium only) {
+        .slick-slide {
+          &:nth-child(5) { order: 10; margin-top: -35px; }
+          &:nth-child(9) { order: 11; margin-top: -35px; }
+          &:nth-child(10) { order: 3; flex-basis: 40%; }
+          &:nth-child(11) { order: 6; flex-basis: 40%; }
+          &:nth-child(12) { order: 9; flex-basis: 40%; }
+        }
+
+      }
+    }
+
+    ul li {
+      list-style: none;
+      a {
+        font: rem-calc(18px) unquote('/') rem-calc(22px) $oswald-bold-font;
+        color: $black;
+
+        @include breakpoint(medium only) {
+          font: 18px / 36px $oswald-bold-font;
+        }
+
+        @include breakpoint(large) {
+          font: 21px / 32px $oswald-bold-font;
+        }
+
+        &:hover, &:focus {
+          @include breakpoint(medium) {
+            color: $gold;
+          }
+          outline: none;
+        }
+      }
+    }
+
+    .slick-slider {
+
+      @include breakpoint(small only) {
+        .slick-slide:not(.slick-current) {
+          position: relative;
+
+          &:after {
+            content: '';
+            position: absolute;
+            background-image: url('small-opener-open.png');
+            width: 36px;
+            height: 11px;
+
+            right: 1px;
+            top: 11px;
+          }
+        }
+
+        .slick-current {
+          position: relative;
+
+          &:after {
+            content: '';
+            position: absolute;
+            background-image: url('small-opener-close.png');
+            width: 36px;
+            height: 11px;
+            right: 1px;
+            top: 11px;
+          }
+        }
+
+        .competences-cloned-row {
+          margin-top: 23px;
+          margin-bottom: 23px;
+
+          p, p a {
+            font: 16px / 22px $carrois-gothic-font;
+          }
+
+          section.info {
+            margin-top: 23px;
+            margin-left: 5px;
+
+            p, p a {
+              font: 16px / 25px $oswald-light-font;
+              color: $black;
+            }
+
+            h5 a {
+              font: 16px / 25px $oswald-bold-font;
+            }
+          }
+        }
+      }
+
+      @include breakpoint(medium down) {
+        margin-bottom: 0;
+      }
+
+      @include breakpoint(medium) {
+        .competences-cloned-row {
+          display: none;
+        }
+      }
+
+      .slick-current a {
+        color: $gold;
+      }
+
+      .slick-track {
+        width: auto !important;
+        transform: initial !important;
+        left: 0 !important;
+      }
+
+      .slick-slide {
+        width: auto !important;
+
+        @include breakpoint(small only) {
+          float: none;
+          border-bottom: 1px solid $gold;
+
+          padding-top: 4px;
+          padding-bottom: 2px;
+        }
+
+         &:focus, a {
+          outline: none;
+        }
+      }
+
+      li {
+        clear: both;
+      }
+    }
+  }
+
+  .flex-row > .small-31:first-child {
+    @include breakpoint(small) {
+      order: 2;
+    }
+
+    @include breakpoint(large) {
+      order: 1;
+    }
+  }
+
+  .flex-row > .small-31:last-child {
+    @include breakpoint(small) {
+      order: 1;
+    }
+
+    @include breakpoint(large) {
+      order: 2;
+    }
+  }
+
+  .b-article {
+    position: relative;
+
+    section.info {
+      @include breakpoint(medium only) {
+        margin-left: 10px;
+        margin-top: -10px;
+      }
+
+      @include breakpoint(large) {
+        margin-top: 50px;
+      }
+
+      @include breakpoint(large) {
+        text-align: right;
+      }
+
+      h4 {
+        font: 27px / 30px $oswald-bold-font;
+        color: $gold;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+
+      h5 {
+        font: 16px / 30px $oswald-bold-font;
+
+        @include breakpoint(large) {
+          font: 18px / 30px $oswald-bold-font;
+        }
+        color: $gold;
+        text-transform: uppercase;
+
+        a { color: $gold; }
+      }
+
+      p {
+        font: 16px / 51px $oswald-light-font;
+
+        @include breakpoint(large) {
+          font: 18px / 51px $oswald-light-font;
+        }
+
+        a {
+          color: $black;
+        }
+
+        &:last-of-type {
+
+          @include breakpoint(large) {
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+
+    article {
+      margin-left: 5px;
+
+      @include breakpoint(medium) {
+        margin-top: 47px;
+      }
+
+      @include breakpoint(large) {
+        margin-top: 20px;
+        margin-left: calc(#{grid-column(1)} - 14px);
+      }
+
+      h2 {
+        @include breakpoint(medium) {
+          font: 32px / 32px $oswald-bold-font;
+          margin-bottom: 26px;
+        }
+        @include breakpoint(large) {
+          font: 36px / 36px $oswald-bold-font;
+          margin-bottom: 31px;
+        }
+
+        color: $black;
+        text-transform: none;
+      }
+
+      p {
+        font: 18px / 25px $carrois-gothic-font;
+        margin-bottom: 35px;
+      }
+    }
+
+    .controlls {
+      float: right;
+
+      a {
+        width: 41px;
+        height: 7px;
+        display: inline-block;
+
+        &.go-back {
+          background-image: url('l-gold-arrow.png');
+        }
+
+        &.go-next {
+          background-image: url('r-gold-arrow.png');
+          margin-right: 20px;
+          margin-left: 20px;
+        }
+      }
+    }
+  }
+}
+
+.b-blindtext {
+  margin-top: 33px;
+
+  @include breakpoint(medium) {
+    margin-top: 48px;
+  }
+
+  @include breakpoint(large) {
+    margin-top: 103px;
+  }
+
+  h2 {
+    color: $gold;
+    font: rem-calc(24px) unquote('/') rem-calc(24px) $oswald-bold-font;
+
+    @include breakpoint(small only) {
+      margin-bottom: 5px;
+    }
+
+    @include breakpoint(medium only) {
+      margin-bottom: 10px;
+    }
+
+    @include breakpoint(medium) {
+      font: 27px / 27px $oswald-bold-font;
+    }
+
+    @include breakpoint(large) {
+      text-align: right;
+      padding-right: 10px;
+    }
+  }
+
+  h3 {
+    color: $black;
+    font: rem-calc(18px) unquote('/') rem-calc(23px) $oswald-bold-font;
+    margin-bottom: 30px;
+
+    @include breakpoint(medium only) {
+      font: 32px / 45px $oswald-bold-font;
+
+      margin-bottom: 30px;
+    }
+
+    @include breakpoint(large) {
+      font: 36px / 36px $oswald-bold-font;
+      padding-left: calc(#{grid-column(1)} - 5px);
+      border-left: 2px solid $gold;
+      margin: 0;
+      padding-top: 72px;
+      margin-bottom: 37px;
+    }
+  }
+
+  .left-image {
+    @include breakpoint(small only) {
+      margin-left: -$small-page-spacing;
+    }
+
+    @include breakpoint(340px down) {
+      img {
+        width: 120%;
+      }
+    }
+
+    @include breakpoint(medium only) {
+      margin-left: -$medium-page-spacing;
+    }
+  }
+
+  .on-image-info {
+    background-color: $white;
+
+    @include breakpoint(small only) {
+      padding-top: 10px;
+      padding-bottom: 12px;
+      margin-left: - grid-column(6);
+      margin-top: 33px;
+    }
+
+    @include breakpoint(medium) {
+      margin-left: calc(-#{$medium-page-spacing} - #{grid-column(3)});
+      padding-top: 28px;
+      padding-bottom: 28px;
+      margin-top: 40px;
+    }
+
+    @include breakpoint(large) {
+      margin-left: calc(-#{grid-column(3)} - 5px);
+    }
+
+    li {
+      &:before {
+        content: '-';
+        position: absolute;
+        margin-left: -10px;
+      }
+
+      font: rem-calc(16px) unquote('/') rem-calc(25px) $oswald-bold-font;
+      padding-left: grid-column(2);
+
+      @include breakpoint(medium) {
+        font: rem-calc(21px) unquote('/') rem-calc(38px) $oswald-bold-font;
+        padding-left: grid-column(4);
+      }
+
+      &:last-child {
+        line-height: 26px;
+      }
+    }
+  }
+
+  .sub-info {
+    position: relative;
+    padding-top: 35px;
+    padding-left: 4px;
+    margin-top: -87px;
+
+    &:before {
+      width: 2px;
+      height: 52px;
+      content: '';
+      position: absolute;
+      background-color: $gold;
+      top: 0;
+      left: -5px;
+    }
+
+    p {
+      font: rem-calc(18px) unquote('/') rem-calc(25px) $carrois-gothic-font;
+      min-height: 147px;
+    }
+
+    .contact.button {
+      margin-top: 40px;
+    }
+  }
+}
+
+.b-parallax {
+  margin-top: 108px;
+  margin-bottom: 108px;
+  min-height: 660px;
+  background-image: url('parallax-bg.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .content {
+    padding-top: 208px;
+    @include quoted-content;
+  }
+}
+
+.b-our-team {
+  @include breakpoint(small only) {
+    margin-top: 33px;
+  }
+
+  @include breakpoint(medium only) {
+    margin-top: 50px;
+  }
+  // Add space for target id
+  @include target-padding;
+
+  h2 {
+    color: $gold;
+    font: rem-calc(24px) unquote('/') rem-calc(24px) $oswald-bold-font;
+
+    @include breakpoint(medium) {
+      font: rem-calc(36) unquote('/') rem-calc(36) $oswald-bold-font;
+    }
+
+    @include breakpoint(large) {
+      text-align: right;
+      padding-right: 10px;
+    }
+  }
+
+  section.experience {
+    @include breakpoint(medium only) {
+      padding-bottom: 18px;
+      border-bottom: 2px solid $gold;
+    }
+
+    @include breakpoint(large) {
+      padding-left: grid-column(1);
+    }
+
+    h3 {
+      display: inline-block;
+      margin: 0;
+      color: $black;
+      font: rem-calc(18px) unquote('/') rem-calc(23px) $oswald-bold-font;
+
+      @include breakpoint(small only) {
+        margin-top: 10px;
+        margin-bottom: 15px;
+      }
+
+      @include breakpoint(medium only) {
+        font: rem-calc(32px) unquote('/') rem-calc(45px) $oswald-bold-font;
+        margin-top: 10px;
+        margin-bottom: 20px;
+      }
+
+      @include breakpoint(large) {
+        border-left: 2px solid $gold;
+        padding-left: calc(#{grid-column(1)} - 2px);
+        font: rem-calc(36px) unquote('/') rem-calc(36px) $oswald-bold-font;
+        padding-top: 72px;
+        margin-bottom: 43px;
+        margin-left: - grid-column(1);
+      }
+    }
+
+    p {
+      margin-left: 1px;
+      font-size: rem-calc(16px);
+      line-height: rem-calc(22px);
+
+      @include breakpoint(medium) {
+        font-size: rem-calc(18px);
+        line-height: rem-calc(25px);
+      }
+      margin-bottom: 25px;
+    }
+  }
+
+  .b-cards {
+    margin-left: grid-column(1);
+    padding-left: 14px;
+
+    .b-card {
+      position: relative;
+
+      .wrap {
+        min-height: 145px;
+      }
+
+      .name {
+        font: rem-calc(21px) unquote('/') rem-calc(40px) $oswald-bold-font;
+        color: $gold;
+      }
+
+      .position {
+        position: relative;
+
+        &:after {
+          content: '';
+          position: absolute;
+          height: 1px;
+          width: 35px;
+          background-color: $black;
+          bottom: -8px;
+          left: 0;
+        }
+
+        margin-bottom: 18px;
+      }
+
+      .position, .subtitle {
+        font-size: rem-calc(14px);
+        line-height: rem-calc(20px);
+      }
+
+      .subtitle {
+        line-height: rem-calc(18px);
+      }
+
+      a.open {
+        font: rem-calc(20px) unquote('/') rem-calc(24px) $trade-gothic-light-font;
+        color: $black;
+      }
+
+      a:hover {
+        span.border:first-child {
+          animation-name: marginanimality-r;
+          animation-duration: 0.8s;
+          animation-timing-function: linear;
+          animation-iteration-count: infinite;
+        }
+
+        span.plus {
+          animation-name: rotateInDownRight;
+          animation-duration: 0.8s;
+          animation-timing-function: linear;
+          animation-iteration-count: infinite;
+        }
+
+        span.border:last-child {
+          animation-name: marginanimality-l;
+          animation-duration: 0.8s;
+          animation-timing-function: linear;
+          animation-iteration-count: infinite;
+        }
+      }
+    }
+  }
+}
+
+.b-lawyers {
+
+  @include breakpoint(large) {
+    margin-top: 108px;
+  }
+
+  @include target-padding;
+
+  h2 {
+    position: relative;
+    font: rem-calc(36px) unquote('/') rem-calc(36px) $oswald-bold-font;
+    color: $gold;
+    text-align: right;
+    padding-right: 10px;
+
+    &:after {
+      content: '';
+      position: absolute;
+      width: 2px;
+      height: 104px;
+      background-color: $gold;
+      right: -12px;
+      top: 0;
+    }
+  }
+
+  .nav {
+    position: absolute;
+    margin-left: 163px;
+    margin-top: 40px;
+    z-index: 999;
+
+    a {
+      display: inline-block;
+      width: 59px;
+      height: 9px;
+
+      &.go-back {
+        background-image: url('l-big-gold-arrow.png');
+        margin-right: 17px;
+      }
+      &.go-next {
+        margin-left: 17px;
+        background-image: url('r-big-gold-arrow.png');
+      }
+    }
+  }
+
+  .grey-bg {
+    @include breakpoint(large) {
+      background-color: rgb(240, 240, 240);
+    }
+  }
+
+  .pos {
+    position: relative;
+
+    @include breakpoint(small only) {
+      padding: 0;
+    }
+
+    @include breakpoint(large) {
+      margin-right: 5px;
+    }
+  }
+
+  .big-card {
+
+    @include breakpoint(small only) {
+      margin-bottom: 13px;
+    }
+
+    @include breakpoint(medium only) {
+      margin-top: 35px;
+      padding-bottom: 30px;
+      border-bottom: 2px solid $gold;
+    }
+
+    @include breakpoint(large) {
+      padding-left: 160px;
+      padding-right: 74px;
+      padding-top: 70px;
+      padding-bottom: 90px;
+    }
+
+
+    .user-name {
+      @include breakpoint(small only) {
+        margin-top: 15px;
+        margin-left: $small-page-spacing;
+      }
+
+      @include breakpoint(medium only) {
+        margin-top: 48px;
+        flex-basis: grid-column(12);
+      }
+    }
+
+    .name {
+      color: $gold;
+      font: rem-calc(16px) unquote('/') rem-calc(20px) $oswald-bold-font;
+
+      @include breakpoint(medium only) {
+        font: rem-calc(21px) unquote('/') rem-calc(40px) $oswald-bold-font;
+      }
+
+      @include breakpoint(large) {
+        font: rem-calc(36px) unquote('/') rem-calc(36px) $oswald-bold-font;
+        margin-bottom: 20px;
+      }
+    }
+
+    .position {
+      font: rem-calc(14px) unquote('/') rem-calc(20px) $carrois-gothic-font;
+
+      @include breakpoint(large) {
+        font: rem-calc(18px) unquote('/') rem-calc(18px) $oswald-bold-font;
+      }
+    }
+
+    .photo {
+      @include breakpoint(340px down) {
+        img {
+          height: 184px;
+        }
+      }
+
+      @include breakpoint(medium down) {
+        flex-basis: 100%;
+      }
+
+      @include breakpoint(large) {
+        position: absolute;
+        margin-left: -507px;
+      }
+    }
+
+    .contact-info {
+      font: rem-calc(14px) unquote('/') rem-calc(18px) $carrois-gothic-font;
+      margin-top: 20px;
+      position: relative;
+
+      @include breakpoint(small only) {
+        flex-basis: 100%;
+        padding-bottom: 30px;
+        border-bottom: 1px solid $gold;
+        position: relative;
+        margin-left: $small-page-spacing;
+        margin-right: $small-page-spacing;
+
+        a.opener {
+          display: block;
+          position: absolute;
+          background-image: url('small-opener-open.png');
+          width: 36px;
+          height: 11px;
+
+          left: 0;
+          bottom: 5px;
+
+          &.open {
+            background-image: url('small-opener-close.png');
+          }
+        }
+      }
+
+      @include breakpoint(medium only) {
+        margin-top: 30px;
+        flex-basis: grid-column(19);
+        font: rem-calc(14px) unquote('/') rem-calc(20px) $carrois-gothic-font;
+
+        a.opener {
+          display: block;
+          position: absolute;
+          background-image: url('big-opener-open.png');
+          width: 45px;
+          height: 13px;
+
+          right: 0;
+          top: 45px;
+
+          &.open {
+            background-image: url('big-opener-close.png');
+          }
+        }
+      }
+
+      @include breakpoint(large) {
+        margin: 31px 0;
+        padding: 21px 0;
+        border-top: 1px solid $gold;
+        border-bottom: 1px solid $gold;
+
+        font: rem-calc(18px) unquote('/') rem-calc(30px) $oswald-bold-font;
+      }
+    }
+
+    .about-text {
+
+      @include breakpoint(small only) {
+        margin-top: 22px;
+        margin-left: $small-page-spacing;
+        margin-right: $small-page-spacing;
+      }
+
+      @include breakpoint(medium only) {
+        margin-top: 25px;
+      }
+
+      p {
+        font-size: rem-calc(16px);
+        line-height: rem-calc(22px);
+
+        @include breakpoint(medium) {
+          font-size: rem-calc(18px);
+          line-height: rem-calc(25px);
+        }
+        margin-bottom: 22px;
+      }
+
+      .speaks {
+        @include breakpoint(small only) {
+          font-size: 18px;
+
+          b {
+            font-family: $oswald-bold-font;
+            font-size: 16px;
+          }
+        }
+      }
+
+      .look a {
+        @include breakpoint(small only) {
+          font-family: $oswald-bold-font;
+          font-size: 16px;
+          line-height: 30px;
+        }
+
+        font-weight: bold;
+        color: $black;
+      }
+    }
+  }
+
+  .slick-list {
+    // overflow: visible;
+
+    @include breakpoint(large) {
+      padding-left: 347px;
+      margin-left: -347px;
+    }
+
+    .slick-track {
+      @include breakpoint(medium down) {
+        display: flex;
+        flex-direction: column;
+
+        .big-card.slick-slide {
+          opacity: 1 !important;
+          left: 0 !important;
+          top: 0 !important;
+        }
+      }
+    }
+  }
+}
+
+.b-contact {
+  margin-top: 10px;
+
+  @include breakpoint(medium only) {
+    margin-top: 100px;
+  }
+
+  @include breakpoint(large) {
+    margin-top: 110px;
+  }
+
+  @include target-padding;
+
+  h2 {
+    position: relative;
+    color: $gold;
+    font: rem-calc(18px) unquote('/') rem-calc(18px) $oswald-bold-font;
+
+    @include breakpoint(medium) {
+      font: rem-calc(36px) unquote('/') rem-calc(36px) $oswald-bold-font;
+    }
+
+    @include breakpoint(large) {
+      padding-left: 45px;
+
+      &:after {
+        content: '';
+        position: absolute;
+        width: 2px;
+        height: 104px;
+        background-color: $gold;
+        right: 31px;
+        top: 0;
+      }
+    }
+  }
+
+  h3 {
+    font: rem-calc(18px) unquote('/') rem-calc(23px) $oswald-bold-font;
+    margin-top: 31px;
+
+    @include breakpoint(medium) {
+      margin-top: 109px;
+      font: rem-calc(30px) unquote('/') rem-calc(45px) $oswald-bold-font;
+    }
+
+    @include breakpoint(large) {
+      font: rem-calc(36px) unquote('/') rem-calc(36px) $oswald-bold-font;
+      margin-top: 69px;
+      margin-left: -5px;
+    }
+  }
+
+  .contact-info {
+    position: relative;
+
+    @include breakpoint(medium only) {
+      border-left: 2px solid $gold;
+      padding-left: 34px;
+    }
+
+    @include breakpoint(large) {
+      white-space: pre-wrap;
+      color: $gold;
+      font-family: $oswald-bold-font;
+      font-size: rem-calc(18px);
+      padding-right: 20px;
+
+      div {
+        float: right;
+        clear: both;
+        margin-bottom: 35px;
+        text-align: right;
+      }
+    }
+
+    div {
+      font-size: 9px;
+
+      @include breakpoint(medium) {
+        font-size: rem-calc(18px);
+      }
+    }
+
+    .email {
+      @include breakpoint(medium only) {
+        line-height: 9px;
+      }
+    }
+
+    .phones {
+      @include breakpoint(small only) {
+        margin-bottom: 5px;
+      }
+
+      @include breakpoint(medium only) {
+        margin-bottom: 14px;
+      }
+    }
+
+    .map-pointer {
+      @include breakpoint(small only) {
+        margin-top: 12px;
+      }
+
+
+      @include breakpoint(medium only) {
+        position: absolute;
+        left: -150px;
+        bottom: -5px;
+      }
+
+      @include breakpoint(690px down) {
+        left: -120px;
+      }
+    }
+
+    .company-name {
+      font-size: 11px;
+
+      @include breakpoint(small only) {
+        margin-bottom: 3px;
+        margin-top: 11px;
+      }
+
+      @include breakpoint(medium down) {
+        font-family: $oswald-bold-font;
+        color: $gold;
+      }
+
+      @include breakpoint(medium only) {
+        margin-bottom: 11px;
+      }
+
+      @include breakpoint(medium) {
+        font-size: rem-calc(21px);
+      }
+    }
+  }
+
+  .go-out {
+    position: relative;
+    padding-bottom: 36px;
+    background-color: $white;
+
+    @include breakpoint(medium) {
+      padding-bottom: 105px;
+    }
+
+    @include breakpoint(large) {
+      padding-bottom: 77px;
+    }
+  }
+
+  .form {
+    width: 100%;
+
+    @include breakpoint(large) {
+      margin-left: -5px;
+    }
+
+    p.desc {
+      @include breakpoint(small only) {
+        font-size: rem-calc(12px);
+        line-height: rem-calc(12px);
+
+        margin-bottom: 30px;
+      }
+
+      @include breakpoint(medium) {
+        margin-bottom: 42px;
+      }
+
+      @include breakpoint(large) {
+        margin-bottom: 80px;
+      }
+    }
+
+    input[type="text"] {
+      height: 17px;
+      border-bottom: 1px solid $gold;
+      margin-bottom: 12px;
+
+      @include breakpoint(medium) {
+        margin-bottom: 31px;
+        height: 32px;
+        border-bottom: 1.5px solid $gold;
+      }
+      width: 100%;
+    }
+
+    .file {
+      font: rem-calc(14px) unquote('/') rem-calc(16px) $oswald-bold-font;
+
+
+      @include breakpoint(medium) {
+        font: rem-calc(21px) unquote('/') rem-calc(21px) $oswald-bold-font;
+      }
+    }
+
+    .send {
+      a {
+        font: rem-calc(14px) unquote('/') rem-calc(16px) $oswald-bold-font;
+
+        @include breakpoint(medium) {
+          font: 27px/27px $oswald-bold-font;
+        }
+        text-transform: uppercase;
+        color: $black;
+
+        &:hover {
+          color: $gold;
+        }
+      }
+    }
+  }
+}
+
+.b-map {
+  width: 100%;
+  height: 330px;
+  background: url('map-frame.png') no-repeat center;
+  background-size: cover;
+  overflow: hidden;
+
+  @include breakpoint(medium) {
+    height: 348px;
+
+    #map-frame {
+      height: 348px;
+    }
+  }
+
+  @include breakpoint(large) {
+    height: 697px;
+    margin-top: -77px;
+    @include target-padding;
+
+    #map-frame {
+      height: 697px;
+    }
+  }
+
+  &:target {
+    background-image: none;
+  }
+
+  #map-frame {
+    display: none;
+    z-index: 9;
+  }
+
+  &:target {
+    #map-frame {
+      display: block;
+      position: absolute;
+    }
+  }
+}
+
+footer {
+  background-color: $blue;
+  color: $white;
+  font-family: $oswald-bold-font;
+
+  @include breakpoint(large) {
+    height: 337px;
+  }
+
+  .logo {
+    float: right;
+
+    @include breakpoint(small only) {
+      img {
+        width: 70%;
+      }
+    }
+
+    @include breakpoint(medium down) {
+      margin-top: 66px;
+    }
+
+    @include breakpoint(large) {
+      margin-top: 117px;
+    }
+  }
+
+  a {
+    color: $white;
+    font-family: $oswald-bold-font;
+
+    &:hover {
+      color: $gold;
+    }
+
+    &.active {
+      color: $gold;
+    }
+  }
+
+  .wrap {
+    font-size: rem-calc(14px);
+    margin-top: 23px;
+
+    @include breakpoint(medium) {
+      font-size: rem-calc(16px);
+    }
+    @include breakpoint(large) {
+      margin-top: 100px;
+      font-size: rem-calc(20px);
+    }
+    font-family: $oswald-bold-font;
+  }
+
+  .address {
+    white-space: pre-wrap;
+    letter-spacing: 2px;
+
+    line-height: rem-calc(18px);
+
+    @include breakpoint(medium) {
+      line-height: rem-calc(36px);
+    }
+  }
+
+  .map {
+    margin-top: 19px;
+
+    @include breakpoint(medium) {
+      margin-top: 50px;
+    }
+
+    @include breakpoint(large) {
+      margin-top: 30px;
+    }
+
+    .city-name {
+      margin-right: 30px;
+    }
+
+    a.on-map-icon {
+      margin-bottom: -10px;
+    }
+  }
+
+  nav.links {
+    ul > li {
+      line-height: rem-calc(36px);
+
+      &:last-child {
+        margin-top: 62px;
+      }
+    }
+  }
+
+  .phones {
+    line-height: rem-calc(18px);
+
+    @include breakpoint(medium) {
+      line-height: rem-calc(36px);
+    }
+  }
+
+  .copy {
+    font-size: 12px;
+    margin-top: 74px;
+
+    @include breakpoint(large) {
+      font-size: rem-calc(18px);
+      margin-top: 67px;
+    }
+  }
+}
+
+.b-impressum {
+  margin-top: 106px;
+  margin-bottom: 106px;
+
+  h3 {
+    color: $gold;
+    font: rem-calc(36px) unquote('/') rem-calc(36px) $oswald-bold-font;
+    text-align: right;
+    padding-right: 10px;
+  }
+
+  section {
+    padding-left: grid-column(1);
+
+    h4 {
+      display: inline-block;
+      padding-left: grid-column(1);
+      color: $black;
+      font: rem-calc(36px) unquote('/') rem-calc(36px) $oswald-bold-font;
+      border-left: 2px solid $gold;
+      margin: 0;
+      padding-top: 72px;
+      margin-bottom: 43px;
+      margin-left: - grid-column(1);
+
+      span {
+        font: rem-calc(18px) unquote('/') rem-calc(25px) $carrois-gothic-font;
+      }
+    }
+
+    p {
+      font-size: rem-calc(18px);
+      line-height: rem-calc(25px);
+      margin-bottom: 55px;
+    }
+
+    dl, dt, dd {
+      font: rem-calc(17px) / rem-calc(30px) $oswald-bold-font;
+    }
+  }
+
+  nav.pages {
+    margin-top: 53px;
+
+    li {
+      display: inline-block;
+      padding-left: 10px;
+
+      &:first-child {
+        padding-left: 0;
+      }
+    }
+
+    a {
+      font: $trade-gothic-light-font;
+      color: $black;
+
+      &.current {
+        color: $gold;
+      }
+    }
+  }
+}
+
+.b-career {
+  margin-top: 40px;
+  margin-bottom: 40px;
+
+  @include breakpoint(medium) {
+    margin-top: 106px;
+    margin-bottom: 106px;
+  }
+
+  @include target-padding;
+
+  h3 {
+    color: $gold;
+
+    font: rem-calc(18px) unquote('/') rem-calc(18px) $oswald-bold-font;
+
+    @include breakpoint(medium down) {
+      float: left;
+    }
+
+    @include breakpoint(medium) {
+      font: rem-calc(36px) unquote('/') rem-calc(36px) $oswald-bold-font;
+    }
+
+    @include breakpoint(large) {
+      padding-right: 10px;
+      text-align: right;
+    }
+  }
+
+  .sub-nav {
+    @include breakpoint(small only) {
+      border-left: 1px solid $gold;
+      margin-left: 32px;
+      padding-left: 27px;
+      float: left;
+
+      margin-top: -10px;
+    }
+
+    @include breakpoint(medium only) {
+      border-left: 2px solid $gold;
+      margin-left: 25px;
+      padding-left: 25px;
+      float: left;
+    }
+
+    @include breakpoint(large) {
+      padding-right: 10px;
+      margin-top: 100px;
+      text-align: right;
+    }
+
+    a {
+      display: block;
+      color: $black;
+      font-family: $oswald-bold-font;
+
+      font-size: rem-calc(16px);
+      line-height: rem-calc(20px);
+
+      @include breakpoint(medium) {
+        font-size: rem-calc(21px);
+        line-height: rem-calc(36px);
+      }
+
+      @include breakpoint(large) {
+        font-size: rem-calc(21px);
+        line-height: rem-calc(36px);
+      }
+
+      &.active {
+        color: $gold;
+      }
+    }
+  }
+
+  .b-contact {
+    margin-top: 0;
+  }
+
+  .career-form {
+    h4 {
+      font: rem-calc(36px) unquote('/') rem-calc(45px) $oswald-bold-font;
+    }
+
+    .form {
+      margin-left: 3px;
+    }
+  }
+
+  section {
+    clear: both;
+    float: left;
+
+    @include breakpoint(large) {
+      padding-left: grid-column(1);
+    }
+
+    &.first {
+      @include breakpoint(small only) {
+        margin-top: 18px;
+      }
+
+      h4 {
+        font-family: $oswald-bold-font;
+        font-size: rem-calc(18px);
+        line-height: rem-calc(23px);
+
+        @include breakpoint(medium) {
+          padding-top: 55px;
+          font-size: rem-calc(32px);
+          line-height: rem-calc(45px);
+        }
+
+        @include breakpoint(large) {
+          border-left: 2px solid $gold;
+          font-size: rem-calc(36px);
+          line-height: rem-calc(48px);
+          padding-top: 72px;
+        }
+      }
+
+      span.sub {
+        margin-top: -20px;
+      }
+    }
+
+    h4 {
+      font-family: $oswald-bold-font;
+      display: inline-block;
+      padding-left: grid-column(1);
+      color: $black;
+
+      @include breakpoint(medium) {
+        font-size: rem-calc(36px);
+        line-height: rem-calc(46px);
+      }
+
+      margin: 0;
+      padding-top: 22px;
+      margin-bottom: 33px;
+      margin-left: - grid-column(1);
+    }
+
+    span.sub {
+      display: block;
+      position: relative;
+      font-family: $oswald-bold-font;
+
+      font-size: rem-calc(14px);
+      line-height: rem-calc(15px);
+      margin-bottom: 20px;
+      clear: both;
+      margin-top: -26px;
+
+      @include breakpoint(medium) {
+        font-size: rem-calc(17px);
+        line-height: rem-calc(17px);
+        margin-bottom: 30px;
+      }
+    }
+
+    p {
+      font-size: rem-calc(16px);
+      line-height: rem-calc(22px);
+
+      @include breakpoint(medium) {
+        font-size: rem-calc(18px);
+        line-height: rem-calc(25px);
+      }
+
+      margin-bottom: 20px;
+    }
+
+    a.pdf {
+      display: inline-block;
+      font: rem-calc(22px) unquote('/') rem-calc(36px) $oswald-bold-font;
+      font-weight: bold;
+      color: $gold;
+      text-transform: uppercase;
+      float: right;
+      margin-top: -45px;
+    }
+
+    article {
+      @include breakpoint(medium) {
+        padding-bottom: 13px;
+      }
+      border-bottom: 1px solid $black;
+    }
+  }
+}
+
+p {
+  font-family: $carrois-gothic-font;
+}
+
+a {
+  text-decoration: none;
+
+  &.email {
+    color: $gold;
+    font: rem-calc(16px) unquote('/') rem-calc(22px) $oswald-bold-font;
+
+    @include breakpoint(medium) {
+      font: rem-calc(18px) unquote('/') rem-calc(25px) $oswald-bold-font;
+    }
+  }
+}
+
+.mt15 {
+  margin-top: 15px;
+}
+
+input:focus{
+  outline: none;
+}
+
+input:focus::placeholder {
+  opacity: 0;
+}
+
+input::placeholder {
+  color: $black;
+}
+
+@include breakpoint(small only) {
+  input::-webkit-input-placeholder {
+  font: 14px/16px $oswald-bold-font;
+  color: $black;
+  }
+  input:-moz-placeholder {
+    font: 14px/16px $oswald-bold-font;
+    color: $black;
+    opacity: 1;
+  }
+  input::-moz-placeholder {
+    font: 14px / 16px $oswald-bold-font;
+    color: $black;
+    opacity: 1;
+  }
+  input:-ms-input-placeholder {
+    font: 14px/16px $oswald-bold-font;
+    color: $black;
+  }
+}
+
+@include breakpoint(medium) {
+  input::-webkit-input-placeholder {
+  font: 21px/21px $oswald-bold-font;
+  color: $black;
+  }
+  input:-moz-placeholder {
+    font: 21px/21px $oswald-bold-font;
+    color: $black;
+    opacity: 1;
+  }
+  input::-moz-placeholder {
+    font: 21px / 21px $oswald-bold-font;
+    color: $black;
+    opacity: 1;
+  }
+  input:-ms-input-placeholder {
+    font: 21px/21px $oswald-bold-font;
+    color: $black;
+  }
+}
+
+.button {
+  &.contact {
+    display: inline-block;
+    width: 200px;
+    height: 60px;
+    border: 2px solid $gold;
+    font: rem-calc(27px) unquote('/') rem-calc(60px) $oswald-bold-font;
+    color: $gold;
+    text-align: center;
+    text-transform: uppercase;
+  }
+}
+
+.icon {
+  display: inline-block;
+
+  &.on-map {
+    background: url('on-map-icon.png') no-repeat;
+    background-size: cover;
+
+    @include breakpoint(small only) {
+      width: 21px;
+      height: 31px;
+    }
+
+    @include breakpoint(medium) {
+      width: 35px;
+      height: 51px;
+    }
+  }
+
+  &.on-big-map {
+    background: url('on-map-big-icon.png') no-repeat;
+    background-size: cover;
+
+    width: 26px;
+    height: 38px;
+
+    @include breakpoint(large) {
+      width: 41px;
+      height: 60px;
+    }
+  }
+}
+
+#back-to-top {
+  bottom: 20px;
+  right: 20px;
+
+  @include breakpoint(medium) {
+    bottom: 20px;
+    right: 60px;
+  }
+
+  @include breakpoint(large) {
+    bottom: 40px;
+    right: 40px;
+  }
+
+  position: fixed;
+  z-index: 9999;
+  width: 50px;
+  height: 50px;
+  background-image: url('scroll.jpg');
+  cursor: pointer;
+  transition: opacity 0.2s ease-out;
+  opacity: 0;
+
+  &.show {
+    opacity: 1;
+  }
+}
+
+.slick-slide {
+   &:focus, a {
+    outline: none;
+  }
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.wspace {
+  white-space: pre-wrap;
+}
+
+label.file {
+  cursor: pointer;
+
+  &:hover {
+    color: $gold;
+  }
+}
+
+._font-25 {
+  font-size: 25px !important;
+}
+
+.slick-slider {
+  -webkit-user-select: initial;
+  -moz-user-select: initial;
+  -ms-user-select: initial;
+  user-select: initial;
+  -webkit-touch-callout: initial;
+  -khtml-user-select: initial;
+
+  margin-bottom: 0;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.opacity-1 {
+  opacity: 1;
+}

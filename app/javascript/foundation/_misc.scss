@@ -1,8 +1,5 @@
 // 100% width for flexible layouts
 .row {
-  &.fluid {
-    @include grid-row($behavior: nest-collapse);
-  }
 
   .column:first-child {
     padding-left: 0;
@@ -17,8 +14,23 @@
   min-height: 1px;
 }
 
+.flex-row {
+  @include breakpoint(medium down) {
+    display: flex !important;
+    // flex-direction: column;
+    flex-flow: row wrap;
+    position: relative;
+  }
+}
+
+@for $i from 1 through 4 {
+  *[class$="order-#{$i}"] {
+    order: $i;
+  }
+}
+
 // Making grid visible
-.dev-grid-viewer {
+@mixin grid-viewer {
   position: relative;
 
   .display-grid {

@@ -11,34 +11,953 @@
       .row
         .logo
           = image_tag 'logo', width: '100%', height: 'auto'
-        .small-20.small-offset-6.columns
+        .small-25.small-offset-6.columns.show-for-large
           ul.b-menu
             li
-              a href="#" Kompetenzen
+              a href="#kompetenzen" Kompetenzen
             li
-              a href="#" Das team
+              a href="#team" Das team
             li
-              a href="#" karriere
+              a href="#karriere" karriere
             li
-              a href="#" kontakt
+              a href="#kontakt" kontakt
             li
-              a href="#" anfahrt
+              a href="#kontakt" anfahrt
             li
-              a href="#" impressum
+              a href="#impressum" impressum
 
     //Slider
-    .row.fluid.collapse
+    .row.expanded.collapse
       .small-31.columns
         .b-slider
           - 1.upto(2) do |i|
             div class="slide slide-id-#{i}"
               .content
                 .main-text
-                  |EINE STUNDE MIT UNS: WIR SHAUFEN 10 MINUTEN AUF DIE VERGANGENHEIT.
+                  | EINE STUNDE MIT UNS:
+                  br.hide-for-medium
+                  WIR SHAUFEN 10 MINUTEN AUF DIE VERGANGENHEIT.
                   br
                   | 50 MINUTEN KÜMMERN WIR UNS UM IHRE ZUKUNFT.
                 .quote-by
-                  | BIEBERSTEIN & STADLERKKK
+                  | BIEBERSTEIN & STADLER
+
+  #kompetenzen.b-competences
+    // Anchor links
+    div.hidden-anchor#kompetenzen-arbeitsrecht
+    div.hidden-anchor#kompetenzen-baurecht
+    div.hidden-anchor#kompetenzen-familienrecht
+    div.hidden-anchor#kompetenzen-erbrecht
+    div.hidden-anchor#kompetenzen-verkehrsrecht
+    div.hidden-anchor#kompetenzen-vertagsrech
+    div.hidden-anchor#kompetenzen-wirtschaftsrecht
+    div.hidden-anchor#kompetenzen-datenschutz
+    div.hidden-anchor#kompetenzen-mietrecht
+    div.hidden-anchor#kompetenzen-handels-und-gesellschaftsrecht
+    div.hidden-anchor#kompetenzen-zwangsvollstreckung-forderungsbeitreibung
+    .row.small-collapse.large-uncollapse
+      .small-31.large-offset-2.large-6.columns
+        h1.clickable.js-default-competence KOMPETENZEN
+      .small-31.large-21.columns.end
+        .row.collapse
+          .small-31.columns
+            nav.js-competences-nav.top-menu
+              ul
+                li.hide
+                  a.js-unclick [href="#kompetenzen" data-slide-id="1" slide="slide_1"] ZU RECHT MIT UNS!
+                li
+                  a.js-unclick [href="#kompetenzen-arbeitsrecht" data-slide-id="2" slide="slide_2"] Arbeitsrecht
+                li
+                  a.js-unclick [href="#kompetenzen-baurecht" data-slide-id="3" slide="slide_3"] Baurecht
+                li
+                  a.js-unclick [href="#kompetenzen-familienrecht" data-slide-id="4" slide="slide_4"] Familienrecht
+                li
+                  a.js-unclick [href="#kompetenzen-erbrecht" data-slide-id="5" slide="slide_5"] Erbrecht
+                li
+                  a.js-unclick [href="#kompetenzen-verkehrsrecht" data-slide-id="6" slide="slide_6"] Verkehrsrecht
+                li
+                  a.js-unclick [href="#kompetenzen-vertagsrech" data-slide-id="7" slide="slide_7"] Vertragsrecht
+                li
+                  a.js-unclick [href="#kompetenzen-wirtschaftsrecht" data-slide-id="8" slide="slide_8"] Wirtschaftsrecht
+                li
+                  a.js-unclick [href="#kompetenzen-datenschutz" data-slide-id="9" slide="slide_9"] Datenschutz
+                li
+                  a.js-unclick [href="#kompetenzen-mietrecht" data-slide-id="10" slide="slide_10"] Mietrecht/WEG-Recht
+                li
+                  a.js-unclick [href="#kompetenzen-handels-und-gesellschaftsrecht" data-slide-id="11" slide="slide_11"] Handels und Gesellschaftsrecht
+                li
+                  a.js-unclick [href="#kompetenzen-zwangsvollstreckung-forderungsbeitreibung" data-slide-id="12" slide="slide_12"]
+                    ' Zwangsvollstreckung &
+                    br
+                    ' Forderungsbeitreibung
+
+    .row.collapse
+      .small-31.large-29.columns.end
+        .b-article
+          .js-competences-slider.hide-for-small-only
+            div.slide[data-index="1"]
+              .row.small-collapse.large-uncollapse
+                .large-offset-1.lage-7.columns.show-for-large
+                .small-31.large-22.columns
+                  article
+                    header.hide-for-small-only
+                      h2 ZU RECHT MIT UNS!
+                    section
+                      p
+                        | Die Gründungspartner der Kanzlei arbeiten seit 1996 zusammen und werden von einem
+                          ausgewählten Team von Rechtsanwälten, Rechtsfachwirtinnen und Rechtsanwaltsfachangestellten nebst Auszubildenen unterstützt. Diese langjährige Zusammenarbeit spiegelt sich auch in den langjährigen Mandatsverhältnissen, denn Beständigkeit und Verantwortungsbewusstsein ist
+                          neben der hohen Qualität ein besonderes Merkmal unseres Beratungsansatzes. Unsere Mandanten sind es gewohnt, dass wir mit ihnen strategisch und taktisch diskutieren um so auf einem
+                          geradlinigen und effektiven Weg ihr Recht durchzusetzen.
+                      p
+                        | Dafür stehen wir!  Allen Anliegen  bzw. Problemen kompetent und diskret vertreten werden – sei es nun außergerichtlich oder vor Gericht.
+
+            div.slide[data-index="2"]
+              .row.flex-row.small-collapse.large-uncollapse
+                .small-31.large-offset-1.large-7.columns
+                  section.info
+                    h4.show-for-large Arbeitsrecht
+                    p Ihr Ansprechpartner:
+                    h5
+                      a.js-goto-person[href="#die-anwalte" data-slide="3"]
+                        | FLORIAN BIEBERSTEIN
+                    h5
+                      a.js-goto-person[href="#die-anwalte" data-slide="1"]
+                        | STEFAN BOHNACKER
+                    p
+                      = link_to 'pdf/pdf-sample.pdf', target: '_blank' do
+                        ' Flyer ansehen [PDF]
+                .small-31.large-22.columns
+                  article
+                    header.hide-for-small-only
+                      h2 Dafür stehen wir!
+                    section
+                      p
+                        | Die Gründungspartner der Kanzlei arbeiten seit 1996 zusammen und werden von einem
+                          ausgewählten Team von Rechtsanwälten, Rechtsfachwirtinnen und Rechtsanwaltsfachangestellten nebst Auszubildenen unterstützt. Diese langjährige Zusammenarbeit spiegelt sich auch in den langjährigen Mandatsverhältnissen, denn Beständigkeit und Verantwortungsbewusstsein ist
+                          neben der hohen Qualität ein besonderes Merkmal unseres Beratungsansatzes. Unsere Mandanten sind es gewohnt, dass wir mit ihnen strategisch und taktisch diskutieren um so auf einem
+                          geradlinigen und effektiven Weg ihr Recht durchzusetzen.
+                      p
+                        | Dafür stehen wir!  Allen Anliegen  bzw. Problemen kompetent und diskret vertreten werden – sei es nun außergerichtlich oder vor Gericht.
+
+            div.slide[data-index="3"]
+              .row.flex-row.small-collapse.large-uncollapse
+                .small-31.large-offset-1.large-7.columns
+                  section.info
+                    h4.show-for-large Baurecht
+                    p Ihr Ansprechpartner:
+                    h5
+                      a.js-goto-person[href="#die-anwalte" data-slide="3"]
+                        | FLORIAN BIEBERSTEIN
+                    h5
+                      a.js-goto-person[href="#die-anwalte" data-slide="1"]
+                        | STEFAN BOHNACKER
+                    p
+                      = link_to 'pdf/pdf-sample.pdf', target: '_blank' do
+                        ' Flyer ansehen [PDF]
+                .small-31.large-22.columns
+                  article
+                    header.hide-for-small-only
+                      h2 Wir bringen Sie zurück auf die Straße
+                    section
+                      p
+                        | Die Gründungspartner der Kanzlei arbeiten seit 1996 zusammen und werden von einem
+                          ausgewählten Team von Rechtsanwälten, Rechtsfachwirtinnen und Rechtsanwaltsfachangestellten nebst Auszubildenen unterstützt. Diese langjährige Zusammenarbeit spiegelt sich auch in den langjährigen Mandatsverhältnissen, denn Beständigkeit und Verantwortungsbewusstsein ist
+                          neben der hohen Qualität ein besonderes Merkmal unseres Beratungsansatzes. Unsere Mandanten sind es gewohnt, dass wir mit ihnen strategisch und taktisch diskutieren um so auf einem
+                          geradlinigen und effektiven Weg ihr Recht durchzusetzen.
+                      p
+                        | Dafür stehen wir!  Allen Anliegen  bzw. Problemen kompetent und diskret vertreten werden – sei es nun außergerichtlich oder vor Gericht.
+
+            div.slide[data-index="4"]
+              .row.flex-row.small-collapse.large-uncollapse
+                .small-31.large-offset-1.large-7.columns
+                  section.info
+                    h4.show-for-large Familienrecht
+                    p Ihr Ansprechpartner:
+                    h5
+                      a.js-goto-person[href="#die-anwalte" data-slide="3"]
+                        | FLORIAN BIEBERSTEIN
+                    h5
+                      a.js-goto-person[href="#die-anwalte" data-slide="1"]
+                        | STEFAN BOHNACKER
+                    p
+                      = link_to 'pdf/pdf-sample.pdf', target: '_blank' do
+                        ' Flyer ansehen [PDF]
+                .small-31.large-22.columns
+                  article
+                    header.hide-for-small-only
+                      h2 Unsere Mandanten sind es gewohnt
+                    section
+                      p
+                        | Die Gründungspartner der Kanzlei arbeiten seit 1996 zusammen und werden von einem
+                          ausgewählten Team von Rechtsanwälten, Rechtsfachwirtinnen und Rechtsanwaltsfachangestellten nebst Auszubildenen unterstützt. Diese langjährige Zusammenarbeit spiegelt sich auch in den langjährigen Mandatsverhältnissen, denn Beständigkeit und Verantwortungsbewusstsein ist
+                          neben der hohen Qualität ein besonderes Merkmal unseres Beratungsansatzes. Unsere Mandanten sind es gewohnt, dass wir mit ihnen strategisch und taktisch diskutieren um so auf einem
+                          geradlinigen und effektiven Weg ihr Recht durchzusetzen.
+                      p
+                        | Dafür stehen wir!  Allen Anliegen  bzw. Problemen kompetent und diskret vertreten werden – sei es nun außergerichtlich oder vor Gericht.
+
+            div.slide[data-index="5"]
+              .row.flex-row.small-collapse.large-uncollapse
+                .small-31.large-offset-1.large-7.columns
+                  section.info
+                    h4.show-for-large Erbrecht
+                    p Ihr Ansprechpartner:
+                    h5
+                      a.js-goto-person.open[href="#die-anwalte" data-slide="3"]
+                        | FLORIAN BIEBERSTEIN
+                    h5
+                      a.js-goto-person.open[href="#die-anwalte" data-slide="1"]
+                        | STEFAN BOHNACKER
+                    p
+                      = link_to 'pdf/pdf-sample.pdf', target: '_blank' do
+                        ' Flyer ansehen [PDF]
+                .small-31.large-22.columns
+                  article
+                    header.hide-for-small-only
+                      h2 Unsere Mandanten sind es gewohnt
+                    section
+                      p
+                        | Die Gründungspartner der Kanzlei arbeiten seit 1996 zusammen und werden von einem
+                          ausgewählten Team von Rechtsanwälten, Rechtsfachwirtinnen und Rechtsanwaltsfachangestellten nebst Auszubildenen unterstützt. Diese langjährige Zusammenarbeit spiegelt sich auch in den langjährigen Mandatsverhältnissen, denn Beständigkeit und Verantwortungsbewusstsein ist
+                          neben der hohen Qualität ein besonderes Merkmal unseres Beratungsansatzes. Unsere Mandanten sind es gewohnt, dass wir mit ihnen strategisch und taktisch diskutieren um so auf einem
+                          geradlinigen und effektiven Weg ihr Recht durchzusetzen.
+                      p
+                        | Dafür stehen wir!  Allen Anliegen  bzw. Problemen kompetent und diskret vertreten werden – sei es nun außergerichtlich oder vor Gericht.
+
+            div.slide[data-index="6"]
+              .row.flex-row.small-collapse.large-uncollapse
+                .small-31.large-offset-1.large-7.columns
+                  section.info
+                    h4.show-for-large Verkehrsrecht
+                    p Ihr Ansprechpartner:
+                    h5
+                      a.js-goto-person.open[href="#die-anwalte" data-slide="3"]
+                        | FLORIAN BIEBERSTEIN
+                    h5
+                      a.js-goto-person.open[href="#die-anwalte" data-slide="1"]
+                        | STEFAN BOHNACKER
+                    p
+                      = link_to 'pdf/pdf-sample.pdf', target: '_blank' do
+                        ' Flyer ansehen [PDF]
+                .small-31.large-22.columns
+                  article
+                    header.hide-for-small-only
+                      h2 Unsere Mandanten sind es gewohnt
+                    section
+                      p
+                        | Die Gründungspartner der Kanzlei arbeiten seit 1996 zusammen und werden von einem
+                          ausgewählten Team von Rechtsanwälten, Rechtsfachwirtinnen und Rechtsanwaltsfachangestellten nebst Auszubildenen unterstützt. Diese langjährige Zusammenarbeit spiegelt sich auch in den langjährigen Mandatsverhältnissen, denn Beständigkeit und Verantwortungsbewusstsein ist
+                          neben der hohen Qualität ein besonderes Merkmal unseres Beratungsansatzes. Unsere Mandanten sind es gewohnt, dass wir mit ihnen strategisch und taktisch diskutieren um so auf einem
+                          geradlinigen und effektiven Weg ihr Recht durchzusetzen.
+                      p
+                        | Dafür stehen wir!  Allen Anliegen  bzw. Problemen kompetent und diskret vertreten werden – sei es nun außergerichtlich oder vor Gericht.
+
+            div.slide[data-index="7"]
+              .row.flex-row.small-collapse.large-uncollapse
+                .small-31.large-offset-1.large-7.columns
+                  section.info
+                    h4.show-for-large Vertragsrecht
+                    p Ihr Ansprechpartner:
+                    h5
+                      a.js-goto-person.open[href="#die-anwalte" data-slide="3"]
+                        | FLORIAN BIEBERSTEIN
+                    h5
+                      a.js-goto-person.open[href="#die-anwalte" data-slide="1"]
+                        | STEFAN BOHNACKER
+                    p
+                      = link_to 'pdf/pdf-sample.pdf', target: '_blank' do
+                        ' Flyer ansehen [PDF]
+                .small-31.large-22.columns
+                  article
+                    header.hide-for-small-only
+                      h2 Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                    section
+                      p
+                        | Die Gründungspartner der Kanzlei arbeiten seit 1996 zusammen und werden von einem
+                          ausgewählten Team von Rechtsanwälten, Rechtsfachwirtinnen und Rechtsanwaltsfachangestellten nebst Auszubildenen unterstützt. Diese langjährige Zusammenarbeit spiegelt sich auch in den langjährigen Mandatsverhältnissen, denn Beständigkeit und Verantwortungsbewusstsein ist
+                          neben der hohen Qualität ein besonderes Merkmal unseres Beratungsansatzes. Unsere Mandanten sind es gewohnt, dass wir mit ihnen strategisch und taktisch diskutieren um so auf einem
+                          geradlinigen und effektiven Weg ihr Recht durchzusetzen.
+                      p
+                        | Dafür stehen wir!  Allen Anliegen  bzw. Problemen kompetent und diskret vertreten werden – sei es nun außergerichtlich oder vor Gericht.
+
+            div.slide[data-index="8"]
+              .row.flex-row.small-collapse.large-uncollapse
+                .small-31.large-offset-1.large-7.columns
+                  section.info
+                    h4.show-for-large Wirtschaftsrecht
+                    p Ihr Ansprechpartner:
+                    h5
+                      a.js-goto-person.open[href="#die-anwalte" data-slide="3"]
+                        | FLORIAN BIEBERSTEIN
+                    h5
+                      a.js-goto-person.open[href="#die-anwalte" data-slide="1"]
+                        | STEFAN BOHNACKER
+                    p
+                      = link_to 'pdf/pdf-sample.pdf', target: '_blank' do
+                        ' Flyer ansehen [PDF]
+                .small-31.large-22.columns
+                  article
+                    header.hide-for-small-only
+                      h2 Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                    section
+                      p
+                        | Die Gründungspartner der Kanzlei arbeiten seit 1996 zusammen und werden von einem
+                          ausgewählten Team von Rechtsanwälten, Rechtsfachwirtinnen und Rechtsanwaltsfachangestellten nebst Auszubildenen unterstützt. Diese langjährige Zusammenarbeit spiegelt sich auch in den langjährigen Mandatsverhältnissen, denn Beständigkeit und Verantwortungsbewusstsein ist
+                          neben der hohen Qualität ein besonderes Merkmal unseres Beratungsansatzes. Unsere Mandanten sind es gewohnt, dass wir mit ihnen strategisch und taktisch diskutieren um so auf einem
+                          geradlinigen und effektiven Weg ihr Recht durchzusetzen.
+                      p
+                        | Dafür stehen wir!  Allen Anliegen  bzw. Problemen kompetent und diskret vertreten werden – sei es nun außergerichtlich oder vor Gericht.
+
+            div.slide[data-index="9"]
+              .row.flex-row.small-collapse.large-uncollapse
+                .small-31.large-offset-1.large-7.columns
+                  section.info
+                    h4.show-for-large Datenschutz
+                    p Ihr Ansprechpartner:
+                    h5
+                      a.js-goto-person.open[href="#die-anwalte" data-slide="3"]
+                        | FLORIAN BIEBERSTEIN
+                    h5
+                      a.js-goto-person.open[href="#die-anwalte" data-slide="1"]
+                        | STEFAN BOHNACKER
+                    p
+                      = link_to 'pdf/pdf-sample.pdf', target: '_blank' do
+                        ' Flyer ansehen [PDF]
+                .small-31.large-22.columns
+                  article
+                    header.hide-for-small-only
+                      h2 Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                    section
+                      p
+                        | Die Gründungspartner der Kanzlei arbeiten seit 1996 zusammen und werden von einem
+                          ausgewählten Team von Rechtsanwälten, Rechtsfachwirtinnen und Rechtsanwaltsfachangestellten nebst Auszubildenen unterstützt. Diese langjährige Zusammenarbeit spiegelt sich auch in den langjährigen Mandatsverhältnissen, denn Beständigkeit und Verantwortungsbewusstsein ist
+                          neben der hohen Qualität ein besonderes Merkmal unseres Beratungsansatzes. Unsere Mandanten sind es gewohnt, dass wir mit ihnen strategisch und taktisch diskutieren um so auf einem
+                          geradlinigen und effektiven Weg ihr Recht durchzusetzen.
+                      p
+                        | Dafür stehen wir!  Allen Anliegen  bzw. Problemen kompetent und diskret vertreten werden – sei es nun außergerichtlich oder vor Gericht.
+
+            div.slide[data-index="10"]
+              .row.flex-row.small-collapse.large-uncollapse
+                .small-31.large-8.columns
+                  section.info
+                    h4.show-for-large Mietrecht/WEG-Recht
+                    p Ihr Ansprechpartner:
+                    h5
+                      a.js-goto-person.open[href="#die-anwalte" data-slide="3"]
+                        | FLORIAN BIEBERSTEIN
+                    h5
+                      a.js-goto-person.open[href="#die-anwalte" data-slide="1"]
+                        | STEFAN BOHNACKER
+                    p
+                      = link_to 'pdf/pdf-sample.pdf', target: '_blank' do
+                        ' Flyer ansehen [PDF]
+                .small-31.large-22.columns
+                  article
+                    header.hide-for-small-only
+                      h2 Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                    section
+                      p
+                        | Die Gründungspartner der Kanzlei arbeiten seit 1996 zusammen und werden von einem
+                          ausgewählten Team von Rechtsanwälten, Rechtsfachwirtinnen und Rechtsanwaltsfachangestellten nebst Auszubildenen unterstützt. Diese langjährige Zusammenarbeit spiegelt sich auch in den langjährigen Mandatsverhältnissen, denn Beständigkeit und Verantwortungsbewusstsein ist
+                          neben der hohen Qualität ein besonderes Merkmal unseres Beratungsansatzes. Unsere Mandanten sind es gewohnt, dass wir mit ihnen strategisch und taktisch diskutieren um so auf einem
+                          geradlinigen und effektiven Weg ihr Recht durchzusetzen.
+                      p
+                        | Dafür stehen wir!  Allen Anliegen  bzw. Problemen kompetent und diskret vertreten werden – sei es nun außergerichtlich oder vor Gericht.
+
+            div.slide[data-index="11"]
+              .row.flex-row.small-collapse.large-uncollapse
+                .small-31.large-offset-1.large-7.columns
+                  section.info
+                    h4.show-for-large Handels- und Gesellschaftsrecht
+                    p Ihr Ansprechpartner:
+                    h5
+                      a.js-goto-person.open[href="#die-anwalte" data-slide="3"]
+                        | FLORIAN BIEBERSTEIN
+                    h5
+                      a.js-goto-person.open[href="#die-anwalte" data-slide="1"]
+                        | STEFAN BOHNACKER
+                    p
+                      = link_to 'pdf/pdf-sample.pdf', target: '_blank' do
+                        ' Flyer ansehen [PDF]
+                .small-31.large-22.columns
+                  article
+                    header.hide-for-small-only
+                      h2 Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                    section
+                      p
+                        | Die Gründungspartner der Kanzlei arbeiten seit 1996 zusammen und werden von einem
+                          ausgewählten Team von Rechtsanwälten, Rechtsfachwirtinnen und Rechtsanwaltsfachangestellten nebst Auszubildenen unterstützt. Diese langjährige Zusammenarbeit spiegelt sich auch in den langjährigen Mandatsverhältnissen, denn Beständigkeit und Verantwortungsbewusstsein ist
+                          neben der hohen Qualität ein besonderes Merkmal unseres Beratungsansatzes. Unsere Mandanten sind es gewohnt, dass wir mit ihnen strategisch und taktisch diskutieren um so auf einem
+                          geradlinigen und effektiven Weg ihr Recht durchzusetzen.
+                      p
+                        | Dafür stehen wir!  Allen Anliegen  bzw. Problemen kompetent und diskret vertreten werden – sei es nun außergerichtlich oder vor Gericht.
+
+            div.slide[data-index="12"]
+              .row.flex-row.small-collapse.large-uncollapse
+                .small-31.large-8.columns
+                  section.info
+                    h4.show-for-large._font-25
+                      | Zwangsvollstreckung &
+                      br
+                      | Forderungsbeitreibung
+                    p Ihr Ansprechpartner:
+                    h5
+                      a.js-goto-person.open[href="#die-anwalte" data-slide="3"]
+                        | FLORIAN BIEBERSTEIN
+                    h5
+                      a.js-goto-person.open[href="#die-anwalte" data-slide="1"]
+                        | STEFAN BOHNACKER
+                    p
+                      = link_to 'pdf/pdf-sample.pdf', target: '_blank' do
+                        ' Flyer ansehen [PDF]
+                .small-31.large-22.columns
+                  article
+                    header.hide-for-small-only
+                      h2 Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                    section
+                      p
+                        | Die Gründungspartner der Kanzlei arbeiten seit 1996 zusammen und werden von einem
+                          ausgewählten Team von Rechtsanwälten, Rechtsfachwirtinnen und Rechtsanwaltsfachangestellten nebst Auszubildenen unterstützt. Diese langjährige Zusammenarbeit spiegelt sich auch in den langjährigen Mandatsverhältnissen, denn Beständigkeit und Verantwortungsbewusstsein ist
+                          neben der hohen Qualität ein besonderes Merkmal unseres Beratungsansatzes. Unsere Mandanten sind es gewohnt, dass wir mit ihnen strategisch und taktisch diskutieren um so auf einem
+                          geradlinigen und effektiven Weg ihr Recht durchzusetzen.
+                      p
+                        | Dafür stehen wir!  Allen Anliegen  bzw. Problemen kompetent und diskret vertreten werden – sei es nun außergerichtlich oder vor Gericht.
+
+          .controlls.show-for-medium
+            a.go-back href="#{js_void}"
+            a.go-next href="#{js_void}"
+
+  // Blindtext
+  .b-blindtext
+    .row.small-collapse.large-uncollapse
+      .small-31.large-offset-2.large-6.columns
+        h2 Blindtext
+      .small-31.large-23.columns
+        .row.collapse
+          .small-31.large-31.columns
+            h3 Zielorientierte Beratung und Betreuung
+
+    .row
+      .small-17.medium-17.large-12.columns
+        .left-image
+          .show-for-small-only
+            = image_tag '225x200-image.png', width: 225, height: 200
+          .show-for-medium-only
+            = image_tag '440x530-image.png', width: 440, height: 530
+          .show-for-large
+            = image_tag 'blindtext-left-img.jpg', width: 441, height: 394
+      .small-20.medium-14.large-9.columns.on-image-info
+        ul
+          li fundiertes Fachwissen
+          li langjährige Erfahrung
+          li
+            | problemorientiertes und
+            br
+            | vorausschauendes Denken
+      .large-8.columns.show-for-large
+        .right-image
+          = image_tag 'blindtext-right-img.jpg', width: 301, height: 238
+
+
+    .row.show-for-large
+      .large-12.large-offset-14.columns
+        .sub-info
+          p
+            | Das Thema Datenschutz und der Umgang hiermit nimmt in der heutigen Zeit eine immer zentraler werdende Rolle ein. Hierbei stellen sich viele verschiedene Fragen:
+
+          a.contact.button href="#kontakt" kontakt
+
+  // Parallax
+  .b-parallax.show-for-large
+    .content
+      .main-text
+        | UNSER TEAM STEHT FÜR EIN INTEGRATIVES, KOLLEGIALES MITEINANDER. BEI UNS GIBT
+        br
+        | ES KEINE SOLISTEN. DESHALB LANDET IHRE ANFRAGE IMMER AN DER RICHTIGEN STELLE.
+      .quote-by
+        | BIEBERSTEIN & STADLER
+
+  #team.b-our-team
+    .row.small-collapse.large-uncollapse
+      .small-31.large-offset-2.large-6.columns
+        h2 Unser team
+      .small-31.large-21.columns.end
+        .row.collapse
+          .large-31.columns
+            section.experience
+              h3 UNSERE EXPERTINNEN UND EXPERTEN IM ÜBERBLICK
+              p
+                | Die partnerschaftliche Zusammenarbeit innerhalb unserer Teams erlaubt es uns, Ihnen  auch für komplexe Ausgangslagen und Fragestellungen umfassende Lösungen aufzuzeigen und Sie in entsprechendenProzessen zu vertreten. Denn schließlich ist es Ihr gutes Recht, dass Ihre Interessen bei allen Anliegen  bzw. Problemen kompetent und diskret vertreten werden – sei es nun außergerichtlich oder vor Gericht.
+              p
+                | Als Partner stehen wir Ihnen zur Seite:
+
+      .b-cards.show-for-large
+        .small-offset-8.small-23.columns.end
+          .row.large-up-4
+            .column.column-block
+              .b-card
+                = image_tag 'person-1.jpg', width: 191, height: 191
+                .wrap
+                  .name
+                    | Mirko Stadler
+                  .position Rechtsanwalt
+                  .subtitle
+                    ' Fachanwalt für Arbeitsrecht
+                    br
+                    ' Fachanwalt für Handels-
+                    br
+                    ' und Gesellschaftsrecht
+                a.js-goto-person.open[href="#die-anwalte" data-slide="2"]
+                  span.border
+                    | [
+                  span.plus
+                    | +
+                  span.border
+                    | ]
+
+            .column.column-block
+              .b-card
+                = image_tag 'person-2.jpg', width: 191, height: 191
+                .wrap
+                  .name
+                    | Florian Bieberstein
+                  .position Rechtsanwalt
+                  .subtitle
+                    | Fachanwalt für Arbeitsrecht
+                a.js-goto-person.open[href="#die-anwalte" data-slide="3"]
+                  span.border
+                    | [
+                  span.plus
+                    | +
+                  span.border
+                    | ]
+
+            .column.column-block
+              .b-card
+                = image_tag 'person-3.jpg', width: 191, height: 191
+                .wrap
+                  .name
+                    | Stefan Bohnacker
+                  .position Rechtsanwalt
+                  .subtitle
+                    ' Fachanwalt für Arbeitsrecht
+                    br
+                    ' Externer Datenschutzbeauf- tragter (IHK)
+                a.js-goto-person.open[href="#die-anwalte" data-slide="1"]
+                  span.border
+                    | [
+                  span.plus
+                    | +
+                  span.border
+                    | ]
+
+            .column.column-block
+              .b-card
+                = image_tag 'person-4.jpg', width: 191, height: 191
+                .wrap
+                  .name
+                    | Max Mustermann
+                  .position Rechtsanwalt
+                  .subtitle
+                    ' Fachanwalt für Arbeitsrecht
+                    br
+                    ' Fachanwalt für Handels-
+                    br
+                    ' und Gesellschaftsrecht
+                a.js-goto-person.open[href="#die-anwalte" data-slide="4"]
+                  span.border
+                    | [
+                  span.plus
+                    | +
+                  span.border
+                    | ]
+
+  #die-anwalte.b-lawyers
+    .row.small-collapse.large-uncollapse
+      .large-offset-2.large-6.columns.show-for-large
+        h2 DIE ANWÄLTE
+        .nav.js-controlls
+          a.go-back href="#{js_void}"
+          a.go-next href="#{js_void}"
+
+      .small-31.large-22.columns.grey-bg.pos
+        .js-team-slider
+          .big-card.flex-row
+            .user-name.medium-order-2
+              .name Stefan Bohnacker
+              .position Rechtsanwalt
+            .photo.medium-order-1
+              .hide-for-large
+                = image_tag 'big-card-person-image.png', width: '100%', height: '100%'
+              .show-for-large
+                = image_tag 'person-big-photo-1.png', width: 441, height: 441
+            .contact-info.medium-order-3
+              .specialisation.hide-for-large
+                | Fachanwalt für Arbeitsrecht
+                br
+                | Externer Datenschutzbeauftragter (IHK)
+                br
+                br
+              .email Stefan.Bohnacker@b-s-kanzlei.de
+              .phone Telefon: 07243-7665-0 <br class="hide-for-medium"> <span class="show-for-medium">//</span> Telefax: 07243-7665-10
+              a.opener.hide-for-large href="#{js_void}"
+            .about-text.medium-order-4.show-for-large
+              p
+                | Herr Bohnacker betreut seit 2009 Mandanten aus den Bereichen Arbeitsrecht, Verkehrsrecht sowie allgemeines Zivilrecht. Sein Schwerpunkt liegt auf dem Arbeitsrecht, wo er beide Seiten des Schreibtisches betreut: Arbeitgeber wie Arbeitnehmer.
+              p
+                | Darüber hinaus steht er unseren Mandanten seit 2012 auch als externer
+                  Datenschutzbeauftragter zur Seite. Besonders seine glasklaren Analysen der Rechtslage und seine intensive Auseinandersetzung mit den wirtschaftlichen und persönlichen Zielen der Mandanten fallen auf fruchtbaren Boden. Seine Mandanten schätzen seine Fähigkeit, schnell und punktgenau die individuellen Wünsche zu erfassen und passgenaue Lösungen dafür zu entwickeln.
+
+              .speaks
+                ' Sprachen:
+                b Deutsch
+
+              .look
+                = link_to 'Vita [PDF]', 'pdf/pdf-sample.pdf', class: 'pdf', target: '_blank'
+
+          .big-card.flex-row
+            .user-name.medium-order-2
+              .name Mirko Stadler
+              .position Rechtsanwalt
+            .photo.medium-order-1
+              .hide-for-large
+                = image_tag 'big-card-person-image.png', width: '100%', height: '100%'
+              .show-for-large
+                = image_tag 'person-big-photo-2.jpg', width: 441, height: 441
+            .contact-info.medium-order-3
+              .specialisation.hide-for-large
+                | Fachanwalt für Arbeitsrecht
+                br
+                | Fachanwalt für Handels- und Gesellschaftsrecht
+                br
+                br
+              .email Mirko.Stadler@b-s-kanzlei.de
+              .phone Telefon: 07243-7665-0 <br class="hide-for-medium"> <span class="show-for-medium">//</span> Telefax: 07243-7665-10
+              a.opener.hide-for-large href="#{js_void}"
+            .about-text.medium-order-4.show-for-large
+              p
+                | Herr Stadler betreut seit 2009 Mandanten aus den Bereichen Arbeitsrecht, Verkehrsrecht sowie allgemeines Zivilrecht. Sein Schwerpunkt liegt auf dem Arbeitsrecht, wo er beide Seiten des Schreibtisches betreut: Arbeitgeber wie Arbeitnehmer.
+              p
+                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore totam fuga laboriosam consequatur vitae, fugit, hic nulla ut in cumque sit doloremque culpa sequi aliquid. Voluptas maiores minus dolorem corrupti repellat non, hic, voluptatem vero. Praesentium delectus ullam officia eligendi.
+
+              .speaks
+                ' Sprachen:
+                b Deutsch
+
+              .look
+                = link_to 'Vita [PDF]', 'pdf/pdf-sample.pdf', class: 'pdf', target: '_blank'
+
+          .big-card.flex-row
+            .user-name.medium-order-2
+              .name Florian Bieberstein
+              .position Rechtsanwalt
+            .photo.medium-order-1
+              .hide-for-large
+                = image_tag 'big-card-person-image.png', width: '100%', height: '100%'
+              .show-for-large
+                = image_tag 'person-big-photo-3.jpg', width: 441, height: 441
+            .contact-info.medium-order-3
+              .specialisation.hide-for-large
+                | Fachanwalt für Arbeitsrecht
+                br
+                br
+              .email Florian.Bieberstein@b-s-kanzlei.de
+              .phone Telefon: 07243-7665-0 <br class="hide-for-medium"> <span class="show-for-medium">//</span> Telefax: 07243-7665-10
+              a.opener.hide-for-large href="#{js_void}"
+            .about-text.medium-order-4.show-for-large
+              p
+                | Herr Bohnacker betreut seit 2009 Mandanten aus den Bereichen Arbeitsrecht, Verkehrsrecht sowie allgemeines Zivilrecht. Sein Schwerpunkt liegt auf dem Arbeitsrecht, wo er beide Seiten des Schreibtisches betreut: Arbeitgeber wie Arbeitnehmer.
+              p
+                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium quae, quaerat ducimus! Ex debitis, unde quae maxime. Modi nostrum voluptas, explicabo, voluptatibus blanditiis ullam. Nihil natus quibusdam aspernatur illum voluptates assumenda suscipit, porro velit error ad nulla, facilis aliquid alias voluptate possimus mollitia, maiores, et. Ex aliquam, commodi voluptatem deserunt quod eligendi quasi molestiae, a. Autem perspiciatis est sunt quaerat?
+
+              .speaks
+                ' Sprachen:
+                b Deutsch
+
+              .look
+                = link_to 'Vita [PDF]', 'pdf/pdf-sample.pdf', class: 'pdf', target: '_blank'
+
+          .big-card.flex-row
+            .user-name.medium-order-2
+              .name Max Mustermann
+              .position Rechtsanwalt
+            .photo.medium-order-1
+              .hide-for-large
+                = image_tag 'big-card-person-image.png', width: '100%', height: '100%'
+              .show-for-large
+                = image_tag 'person-big-photo-4.jpg', width: 441, height: 441
+            .contact-info.medium-order-3
+              .specialisation.hide-for-large
+                | Fachanwalt für Arbeitsrecht
+                br
+                | Fachanwalt für Handels- und Gesellschaftsrecht
+                br
+                br
+              .email Max.Mustermann@b-s-kanzlei.de
+              .phone Telefon: 07243-7665-0 <br class="hide-for-medium"> <span class="show-for-medium">//</span> Telefax: 07243-7665-10
+              a.opener.hide-for-large href="#{js_void}"
+            .about-text.medium-order-4.show-for-large
+              p
+                | Herr Mustermann betreut seit 2009 Mandanten aus den Bereichen Arbeitsrecht, Verkehrsrecht sowie allgemeines Zivilrecht. Sein Schwerpunkt liegt auf dem Arbeitsrecht, wo er beide Seiten des Schreibtisches betreut: Arbeitgeber wie Arbeitnehmer.
+              p
+                | Darüber hinaus steht er unseren Mandanten seit 2012 auch als externer
+                  Datenschutzbeauftragter zur Seite. Besonders seine glasklaren Analysen der Rechtslage und seine intensive Auseinandersetzung mit den wirtschaftlichen und persönlichen Zielen der Mandanten fallen auf fruchtbaren Boden. Seine Mandanten schätzen seine Fähigkeit, schnell und punktgenau die individuellen Wünsche zu erfassen und passgenaue Lösungen dafür zu entwickeln.
+
+              .speaks
+                ' Sprachen:
+                b Deutsch
+
+              .look
+                = link_to 'Vita [PDF]', 'pdf/pdf-sample.pdf', class: 'pdf', target: '_blank'
+
+  #kontakt.b-contact
+    .row.collapse
+      .small-31.medium-8.large-offset-3.large-6.columns
+        h2 Kontakt
+      .small-31.medium-23.columns.hide-for-large
+        .contact-info
+          .company-name BIEBERSTEIN & STADLER
+          .address Einsteinstraße 16, 76275 Ettlingen
+          .phones T +49 (0) 7243 6056.0, F +49 (0)7243 6056.99
+          .email info@b&s.de
+          div.map-pointer
+            a.on-map.icon.js-show-map href="#map"
+      .medium-31.large-22.columns
+        h3 SIE BRAUCHEN RECHTLICHEN RAT?
+
+    .row.collapse.mt15.go-out
+      .large-offset-1.large-7.columns.show-for-large
+        .contact-info
+          .company-name BIEBERSTEIN & STADLER
+          .address
+            | Einsteinstrase 16
+              76275 Ettlingen
+          .phones
+            ' T +49 (0) 7243 6056.0
+            br
+            ' F +49 (0)7243 6056.99
+          .email info@b&s.de
+          div
+            a.on-map.icon.js-show-map href="#map"
+
+      .medium-31.large-offset-1.large-20.columns.end
+        .form
+          p.desc
+            | Schnell und unkompliziert konnen Sie  über das unten stehende Formular mit uns Kontakt aufnehmen:
+          form
+            .row.small-up-1.collapse
+              .column.column-block
+                input#name type="text" placeholder="Name*"
+              .column.column-block
+                input#name type="text" placeholder="E-Mail*"
+              .column.column-block
+                input#name type="text" placeholder="Tel."
+              .column.column-block
+                input#name type="text" placeholder="Nachricht"
+            .row.collapse
+              .small-5.columns
+                label.file for="contact-file" Durchsuchen...
+                input.hide#contact-file type="file" name=""/
+              .small-offset-18.small-8.medium-offset-4.medium-12.columns.end
+                .send
+                  a href="#{js_void}" Senden
+
+  // Map frame
+  #map.b-map
+    = render partial: 'map'
+
+  footer#footer
+    .row
+      .small-12.medium-7.columns
+        .logo
+          = image_tag 'logo-footer.png', width: 195, height: 100
+      .small-offset-2.small-16.medium-22.columns.end
+        .wrap
+          .row.small-collapse.medium-uncollapse.small-up-1.medium-up-3
+            .column.column-block
+              .address
+                | Einsteinstrase 16
+                  76275 Ettlingen
+              .map.show-for-medium
+                span.city-name Anfahrt
+                a.on-big-map.icon href="#map"
+            .column.column-block
+              nav.links
+                ul
+                  li
+                    a href="mailto:info@b&s.de" info@b&s.de
+                  li.show-for-medium
+                    a href="#karriere" Karriere
+                  li.show-for-medium
+                    a href="#impressum" Impressum
+
+            .column.column-block
+              .phones
+                ' T +49 (0) 7243 6056.0
+                br
+                ' F +49 (0)7243 6056.99
+              .map.hide-for-medium
+                a.on-big-map.icon href="#map"
+
+              .copy.show-for-medium © 2017 Bieberstein & Stadler
+
+  #impressum.b-impressum.hide
+    .row
+      .large-offset-2.large-6.columns
+        h3 Impressum
+      .large-21.columns.end
+        section
+          .row.collapse
+            .small-31.columns
+                h4
+                  ' BIEBERSTEIN & STADLER
+                  span Rechtsanwalte PartmbB
+                p
+                  | Die nachfolgenden Ausfuhrungen und Erlauterungen entsprechen den Anforderungen nach dem Telemediengesetz und der Dienstleistungs-Informationspflichten-Verordnung (DL-InfoV): Verantwortlich im Sinne des Presserechts und des § 5 Telemediengesetz neuer Fassung:
+
+          .row.collapse
+            .small-16.columns
+              dl
+                dt BIEBERSTEIN & STADLER Rechtsanwalte PartmbB
+                dd Landgericht Karlsruhe Gerichtsfach 95
+                dd AG Mannheim | PR 700297
+                dd St.Nr. 31034/00174
+
+            .small-15.columns
+              dl
+                dt Partner: Mirko Stadler | Florian Bieberstein
+                dd Einsteinstr. 16 | 76275 Ettlingen
+                dd Telefon: 07243-7665-0 | Telefax: 07243-7665-10
+                dd E-Mail: info@b-s-kanzlei.de | www.b-s-kanzlei.de
+
+          .row.collapse
+            .small-31.columns
+              nav.pages
+                ul
+                  li
+                    a.current href="#{js_void}" [1]
+                  li
+                    a href="#{js_void}" [2]
+                  li
+                    a href="#{js_void}" [3]
+                  li
+                    a href="#{js_void}" [4]
+                  li
+                    a href="#{js_void}" [5]
+                  li
+                    a href="#{js_void}" [6]
+                  li
+                    a href="#{js_void}" [7]
+                  li
+                    a href="#{js_void}" [8]
+                  li
+                    a href="#{js_void}" [9]
+
+  #karriere.b-career.hide
+    .row.small-collapse.large-uncollapse
+      .small-31.large-offset-2.large-6.columns
+        h3 Karriere
+
+        .sub-nav
+          a.menu-item.active[data-show="career-info" href="#{js_void}"] Stellenangebote
+          a.menu-item[data-show="career-form" href="#{js_void}"] Bewerbung
+
+      .small-31.large-21.columns.end
+        section.b-contact.career-form.first.hide
+          .row.collapse
+            .small-31.columns
+              h4
+                | Ihre Onlinebewerbung an uns
+              .form
+                p.desc
+                  | Wenn Sie sich bei uns bewerben wollen, laden Sie bitte Ihre vollständigen Bewerbungsunterlagen als
+                    Anhang hoch (Lebenslauf, Anschreiben, Zeugnisse, sonstige Bescheinigungen).
+
+                form
+                  .row.small-up-1.collapse
+                    .column.column-block
+                      input#name type="text" placeholder="Name*"
+                    .column.column-block
+                      input#name type="text" placeholder="E-Mail*"
+                    .column.column-block
+                      input#name type="text" placeholder="Tel."
+                    .column.column-block
+                      input#name type="text" placeholder="Nachricht"
+                    .column.column-block
+                  .row.collapse
+                    .small-5.columns
+                      label.file for="karriere-file"
+                        ' Durchsuchen...
+                      input.hide#karriere-file type="file" name=""/
+                    .small-offset-18.small-8.medium-offset-4.medium-12.columns.end
+                      .send
+                        a href="#{js_void}" Senden
+
+        section.career-info.first
+          .row.collapse
+            .small-31.columns
+              article
+                h4
+                  | Rechtsanwalt oder Rechtsanwältin gesucht (m/w)
+                span.sub Vollzeit, ab sofort
+                p
+                  | Die Kanzlei Bieberstein & Stadler sucht einen neuen Anwalt oder eine neue Anwältin zur Verstärkung des Teams. Gerne auch Berufseinsteiger. Falls Sie Interesse haben, bewerben Sie sich bitte über unser Bewerbungsformular, schreiben Sie eine E-Mail oder schicken Sie uns Ihre Unterlagebn per Post zu.
+
+                p
+                  | Wir freuen uns auf Ihre Bewerbung!
+
+                = link_to '[PDF]', 'pdf/pdf-sample.pdf', class: 'pdf show-for-large', target: '_blank'
+
+        section.career-info
+          .row.collapse
+            .small-31.columns
+              article
+                h4
+                  | Unterstützen Sie unser Team - lorem ipsum werden Sie Tiermediator/in
+                span.sub Vollzeit, ab sofort
+                p
+                  | Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+                p
+                  | Wir freuen uns auf Ihre Bewerbung!
+
+                = link_to '[PDF]', 'pdf/pdf-sample.pdf', class: 'pdf show-for-large', target: '_blank'
+
+        section.career-info
+          .row.collapse
+            .small-31.columns
+              article
+                h4
+                  | Praktikum bei uns
+                p
+                  | Wir suchen ab sofort einen motivierten und zuverlässigen Kommunikationsdesigner (m/w) in Vollzeit, der vor kreativen Ideen nur so sprüht und für den CI, UI und UX keine Fremdwörter sind.
+                p
+                  | Du besitzt die analytische Denke und Fähigkeit, aus Fakten Trends und Entwick­lungen abzuleiten und behältst auch unter Zeitdruck einen klaren Kopf. Zusätzlich hast du ein konzeptionell-grafisches Gespür und fühlst dich in der Web-Gestaltung zu Hause.
+                p
+                  | Was bei uns auf Dich wartet:
+
+                p.wspace
+                  |
+                   -    Entwick­lung und Gestaltung von Websites
+                   -    Entwicklung von Kommunikations- und Navigationskonzepten unter
+                   -    Berücksichtigung von UX/UI für Online-Anwendungen aller Art
+                   -    Schnittstellenposition zur Program­mie­rung
+                   -    Coporate-Design-Entwicklung
+
+                p
+                  |
+                    Wir haben dein Interesse geweckt? Dann freuen wir uns über deine aussagekräftige Bewerbung unter Angabedeines frühest­möglichen Eintrittstermins sowie deiner Gehaltsvorstellung per
+                  br
+                  ' E-mail an:
+                  a.email href="mailto:info@b&s.de" Sandra Draisaitl info@b&s.de
+
+                = link_to '[PDF]', 'pdf/pdf-sample.pdf', class: 'pdf show-for-large', target: '_blank'
+
+
+a href="#" id="back-to-top" title="Back to top"
+
+
+
+
 
 
 

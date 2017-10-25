@@ -37,6 +37,8 @@ guard :rails, port: 3000, host: '0.0.0.0' do
 end
 
 guard 'livereload' do
+  ignore(%r{app/javascript/.*})
+  ignore(%r{public/packs/.*})
   watch(%r{app/views/.+\.(erb|haml|slim)})
   watch(%r{app/helpers/.+\.rb})
   watch(%r{public/.+\.(css|js|html)})

@@ -1,0 +1,65 @@
+@mixin quoted-content {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  color: $white;
+
+  .main-text {
+    text-align: center;
+    font: rem-calc(12) unquote('/') rem-calc(20) $oswald-bold-font;
+
+    @include breakpoint(small only) {
+      padding-left: $small-page-spacing;
+      padding-right: $small-page-spacing;
+    }
+
+    @include breakpoint(medium only) {
+      font: 28px/48px $oswald-bold-font;
+      padding-left: $medium-page-spacing;
+      padding-right: $medium-page-spacing;
+    }
+
+    @include breakpoint(large) {
+      font: 32px/60px $oswald-bold-font;
+    }
+  }
+
+  .quote-by {
+    position: relative;
+    text-align: center;
+    font: rem-calc(9) unquote('/') rem-calc(25) $oswald-bold-font;
+
+    @include breakpoint(medium) {
+      font: 21px/60px $oswald-bold-font;
+    }
+
+    &:before {
+      position: relative;
+      display: block;
+      margin: 0 auto;
+      margin-top: 16px;
+      margin-bottom: 23px;
+      clear: both;
+      content: '';
+      width: 332px;
+      height: 35px;
+      background-image: url('quote-by.png');
+
+      @include breakpoint(small only) {
+        background-size: cover;
+        width: 137px;
+        height: 14px;
+
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+// Adds more space at the top when current #ID is selected
+@mixin target-padding {
+  &:target {
+    padding-top: 20px;
+  }
+}

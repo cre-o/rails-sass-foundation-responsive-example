@@ -1,0 +1,41 @@
+@keyframes marginanimality-r {
+  0%   {margin-left: 2px;}
+  33%  {margin-left: 4px;}
+  66%  {margin-left: 6px;}
+  100% {margin-left: 8px;}
+}
+
+@keyframes marginanimality-l {
+  0%   {margin-right: 2px;}
+  33%  {margin-right: 4px;}
+  66%  {margin-right: 6px;}
+  100% {margin-right: 8px;}
+}
+
+@keyframes rotateIn {
+  from {
+    transform-origin: center;
+    transform: rotate3d(0, 0, 1, -200deg);
+    opacity: 0;
+  }
+
+  to {
+    transform-origin: center;
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@keyframes rotateInDownRight {
+  from {
+    transform-origin: right bottom;
+    transform: rotate3d(0, 0, 1, 45deg);
+    opacity: 0;
+  }
+
+  to {
+    transform-origin: right bottom;
+    transform: none;
+    opacity: 1;
+  }
+}
