@@ -14,18 +14,24 @@
 #= require jquery.slick
 
 jQuery ->
+  # Main navigation menu logic
+  $('.b-mobile-menu a').on 'click', ->
+    if $(this).hasClass('open')
+      $('.b-top-menu .b-menu').addClass('active')
+      $(this).addClass('close').removeClass('open')
+    else
+      $('.b-top-menu .b-menu').removeClass('active')
+      $(this).addClass('open').removeClass('close')
+
+  $('.b-top-menu .b-menu > ul a').on 'click', ->
+    $('.b-top-menu .b-menu').removeClass('active')
+    $('.b-mobile-menu a').addClass('open').removeClass('close')
+
   # Main slider
   $('.b-slider').slick
     autoplay: true
     autoplaySpeed: 8000
-
-  # # Competences slider -->
-  # $('.js-competences-slider').on 'init', (event, slick) ->
-  #   i = 0
-  #   # Remapping slides
-  #   $('.js-competences-nav li.slick-slide').each ->
-  #     $(this).attr('data-slick-index', i++)
-  #     $(this).removeClass('slick-current')
+    # adaptiveHeight: true
 
   # Restructurise slider on mobile screens
   $('.js-competences-nav li').on 'click', ->
@@ -41,8 +47,6 @@ jQuery ->
         setTimeout ->
           navItem.addClass('slick-current')
         , 50
-
-        console.log $(this).children('competences-cloned-row').length
 
         if $(this).children('.competences-cloned-row').length == 0
           copy = $('.js-competences-slider .slick-current').html()
@@ -60,21 +64,6 @@ jQuery ->
     useTransform: false
     swipe: false
     touchMove: false
-
-  # $('.js-competences-slider').on 'beforeChange', (event, slick, currentSlide, nextSlide) ->
-  #   # Cleans default states
-  #   $('.js-competences-nav .slick-slide').removeClass('slick-current')
-
-  #   # Adds current states to target slides (if navigating by pointers)
-  #   if $(window).width() > 640
-  #     $(".js-competences-nav .slick-slide[data-slick-index='#{nextSlide}']").addClass('slick-current')
-  #     $(".js-competences-nav .slick-slide:not([data-slick-index='#{nextSlide}'])").addClass('stay-color')
-
-  #     setTimeout ->
-  #       $('.js-competences-nav .slick-slide').removeClass('slick-current')
-  #       $(".js-competences-nav .slick-slide[data-slick-index='#{nextSlide}']").addClass('slick-current')
-  #       $('.js-competences-nav .slick-slide').removeClass('stay-color')
-  #     , 200
 
   # Competences slider initialisation
   competencesSlider = $('.js-competences-slider').slick
@@ -99,11 +88,20 @@ jQuery ->
     history.pushState(null, null, $(this).attr('href'));
     e.preventDefault();
 
+  if $('.js-competences-nav .slick-slide:last-child a').attr('href') != '#kompetenzen-zwangsvollstreckung----forderungsbeitreibung'
+    $('.js-competences-nav .slick-track').addClass('changed-order')
+
+
+  changeDefaultMenuState = ->
+    if $('.js-competences-nav li .slick-current').find('.competences-cloned-row').length == 0
+      $('.js-competences-nav li').removeClass('slick-current')
+
   # Hides inactive slides on window resize
   $(window).resize ->
 
     if $(window).width() < 640
       $('.js-competences-slider .slide').addClass('opacity-0')
+      changeDefaultMenuState()
     else
       setTimeout ->
         $('.js-competences-slider .slide').removeClass('opacity-0')
@@ -121,9 +119,25 @@ jQuery ->
   # <-- Competences slider
 
   # User team slider -->
+  $( '.js-team-nav' ).slick
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    focusOnSelect: true,
+    dots: false,
+    useTransform: false,
+    swipe: false,
+    touchMove: false
+
+
+  $( '.b-our-team' ).hover ->
+    $( '.js-team-nav .slick-prev, .js-team-nav .slick-next' ).addClass('visible')
+  , ->
+    $( '.js-team-nav .slick-prev, .js-team-nav .slick-next' ).removeClass('visible')
+
   teamGallery = $('.b-lawyers .js-team-slider').slick
     slidesToShow: 1
     slidesToScroll: 1
+
     autoplay: false
     fade: true
     speed: 500
@@ -148,16 +162,49 @@ jQuery ->
 
   # <-- User team slider
 
+  # Kontakt >
+  $('form').on 'click', '.wpcf7-not-valid-tip', ->
+    $(this).prev().focus()
+    $(this).remove()
+  # < Kontakt
 
-  # Impressum -->>
+  # Impressum -->
+  $('.js-impressum-pages ul').slick
+    slidesToShow: 99
+    slidesToScroll: 1
+    asNavFor: '.js-impressum-slider'
+    focusOnSelect: true
+    dots: false
+    arrows: false
+    useTransform: false
+    swipe: false
+    touchMove: false
+
+  # Competences slider initialisation
+  $('.js-impressum-slider').slick
+    asNavFor: '.js-impressum-pages ul'
+    slidesToShow: 1
+    slidesToScroll: 1
+    autoplay: false
+    adaptiveHeight: true
+    arrows: false
+    fade: true
+    speed: 500
+    swipe: false
+    touchMove: false
+
+  $('.js-impressum-pages .slick-list a').on 'click', ->
+    $('.js-impressum-pages .slick-list a').removeClass('current')
+    $(this).addClass('current')
 
   if hash == '#impressum' then $('#impressum').removeClass('hide')
 
   $('a[href$="#impressum"]').on 'click', ->
     $('#karriere').addClass('hide')
     $('#impressum').removeClass('hide')
+    $('.js-impressum-slider').slick('refresh')
 
-  # <<-- Impressum
+  # <-- Impressum
 
   # Karriere ->>
 

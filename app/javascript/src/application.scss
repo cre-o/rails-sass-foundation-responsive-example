@@ -12,6 +12,7 @@ $oswald-bold-font: 'oswaldbold';
 $oswald-light-font: 'oswaldlight';
 $carrois-gothic-font: 'carrois-gothic-regular';
 $trade-gothic-light-font: 'trade-gothic-lt-light';
+$default-font: $carrois-gothic-font;
 
 // Display grid
 .dev-grid-viewer {
@@ -20,10 +21,22 @@ $trade-gothic-light-font: 'trade-gothic-lt-light';
 
 html {
   font-size: 16px; // Rem base
+
+  @include breakpoint(1110px down) {
+    font-size: 14px;
+  }
+
+  @include breakpoint(700px down) {
+    font-size: 12px;
+  }
+
+  @include breakpoint(640px down) {
+    font-size: 16px;
+  }
 }
 
 body {
-  font-family: $carrois-gothic-font;
+  font-family: $carrois-gothic-font, Helvetica, Roboto, Arial, sans-serif;
 }
 
 h1, h2, h3 {
@@ -73,7 +86,8 @@ h1, h2, h3 {
   .b-top-menu {
     background-color: $white;
     height: 80px;
-    padding-top: 16px;
+    padding-top: 19px;
+    position: relative;
 
     @include breakpoint(large) {
       padding-top: 40px;
@@ -82,7 +96,7 @@ h1, h2, h3 {
     }
 
     @include breakpoint(medium only) {
-      padding-top: 22px;
+      padding-top: 27px;
       height: 125px;
     }
 
@@ -93,61 +107,170 @@ h1, h2, h3 {
       height: 50px;
 
       @include breakpoint(medium only) {
-        margin-left: $medium-page-spacing;
+        margin-left: 60px;
         width: 138px;
         height: 80px;
       }
 
       @include breakpoint(large) {
-        margin-left: -244px;
+        position: absolute;
+        left: 88px;
         width: 154px;
         height: 88px;
       }
+
+      @include breakpoint(1315px down) {
+        position: absolute;
+        left: 2px;
+      }
     }
 
-    ul.b-menu {
-      display: block;
-      list-style: none;
-      font: 18px/48px $oswald-bold-font;
-      margin-top: 10px;
+    .b-menu {
+      @include breakpoint(medium down) {
+        background-color: rgba(0, 22, 36, .96);
+        left: 0;
+        top: 125px;
+        position: absolute;
+        height: calc(100vh - 125px);
+        width: 100vw;
+        z-index: 101;
+        overflow: hidden;
+      }
 
-      a {
-        color: $black;
-        text-decoration: none;
+      @include breakpoint(small only) {
+        top: 80px;
+        height: calc(100vh - 80px);
+      }
 
-        &:hover {
+      &.active {
+        display: block !important;
+      }
+
+      ul {
+        font: rem-calc(24px) unquote('/') rem-calc(40px) $oswald-bold-font;
+        display: block;
+        list-style: none;
+        margin-top: rem-calc(47px);
+        margin-bottom: rem-calc(42px);
+
+        @include breakpoint(medium) {
+          font: rem-calc(26px) unquote('/') rem-calc(53px) $oswald-bold-font;
+          margin-top: rem-calc(83px);
+          margin-bottom: rem-calc(65px);
+        }
+
+        @include breakpoint(large) {
+          font: rem-calc(18px) unquote('/') rem-calc(48px) $oswald-bold-font;
+          margin-top: 10px;
+          margin-bottom: 0;
+        }
+
+        a {
+          color: $white;
+
+          @include breakpoint(large) {
+            color: $black;
+          }
+          text-decoration: none;
+
+          &:hover {
+            color: $gold;
+          }
+        }
+
+        > li {
+          text-transform: uppercase;
+          text-align: center;
+
+          @include breakpoint(large) {
+            display: inline-block;
+            padding-right: 15px;
+            border-right: 1px solid $gold;
+            &:not(:first-child) {
+              padding-left: 30px;
+            }
+
+            &:last-child {
+              border-right: none;
+            }
+          }
+        }
+      }
+
+      section.contact {
+        dt {
+          font-family: $oswald-bold-font;
+          font-size: 14px;
+          line-height: 18px;
           color: $gold;
+          text-align: center;
+
+          @include breakpoint(medium) {
+            font-size: rem-calc(15px);
+            line-height: rem-calc(21px);
+            margin-bottom: rem-calc(24px);
+          }
+
+          span {
+            font-family: $carrois-gothic-font;
+            display: block;
+            font-size: rem-calc(17px);
+            line-height: rem-calc(26px);
+          }
         }
-      }
 
-      > li {
-        display: inline-block;
-        text-transform: uppercase;
-        padding-right: 15px;
-        border-right: 1px solid $gold;
-
-        &:not(:first-child) {
-          padding-left: 30px;
-        }
-
-        &:last-child {
-          border-right: none;
+        dd {
+          color: $white;
+          font-family: $carrois-gothic-font;
+          font-size: rem-calc(16px);
+          line-height: rem-calc(24px);
+          text-align: center;
         }
       }
     }
+  }
 
+  .b-mobile-menu {
+    @include breakpoint(large up) {
+      display: none;
+    }
+
+    a {
+      display: inline-block;
+      position: absolute;
+      width: 25px;
+      height: 18px;
+      top: 31px;
+      right: 20px;
+
+      @include breakpoint(medium only) {
+        right: 60px;
+        top: 53px;
+      }
+
+      &.open {
+        background: url('menu-open.png') no-repeat;
+      }
+
+      &.close {
+        background: url('menu-close.png') no-repeat;
+      }
+    }
   }
 
   .b-slider {
     width: 100%;
-    display: flex;
     overflow: hidden;
     margin: auto;
     position: relative;
-    height: 370px;
+    height: calc(100vh - 80px);
 
     @include breakpoint(medium) {
-      height: 780px;
+      height: calc(100vh - 125px);
+    }
+
+    @include breakpoint(large) {
+      height: calc(100vh - 153px);
     }
 
     .slick-prev, .slick-next {
@@ -155,16 +278,20 @@ h1, h2, h3 {
       z-index: 99;
       width: 12px;
       height: 18px;
-      top: 62%;
+      top: calc(100vh - 52% - 1vmin + 9px);
+      margin-top: calc(1vmin + 1%);
 
       @include breakpoint(medium) {
-        top: 59%;
         width: 22px;
         height: 35px;
+
+        top: calc(100vh - 60% - 1vmin + 17px);
+        margin-top: calc(1vmin + 1%);
       }
 
       @include breakpoint(large) {
-        top: 72%;
+        top: calc(100vh - 65% - 1vmin + 17px);
+        margin-top: calc(1vmin + 1%);
       }
 
       &:before {
@@ -176,12 +303,12 @@ h1, h2, h3 {
       background-image: url('l-arrow.png');
       left: 8px;
 
-      @include breakpoint(medium) {
-        left: 21px;
-      }
-
       @include breakpoint(large) {
         left: calc(50% - 510px - 27px);
+      }
+
+      @include breakpoint(1100px down) {
+        left: 21px;
       }
     }
 
@@ -189,21 +316,20 @@ h1, h2, h3 {
       background-image: url('r-arrow.png');
       right: 8px;
 
-      @include breakpoint(medium) {
-        right: 21px;
-      }
-
       @include breakpoint(large) {
         right: calc(50% - 510px - 23px);
+      }
+
+      @include breakpoint(1100px down) {
+        right: 21px;
       }
     }
 
     .slick-list,
     .slick-track,
     .slick-slide {
-      height: 100vh;
-      width: 100vw;
-      display: flex;
+      height: 100%;
+      width: 100%;
     }
 
     &.slick-slider {
@@ -218,24 +344,30 @@ h1, h2, h3 {
       background: url('slider-image-2.jpg') no-repeat;
     }
 
+    a {
+      color: $white;
+    }
+
     .slide {
-      height: 370px;
       background-size: cover;
       background-position: center;
-
-      @include breakpoint(medium) {
-        height: 780px;
-      }
+      display: table;
 
       .content {
-        margin-top: 190px;
+        display: table-cell;
+        vertical-align: middle;
+        padding-top: calc(100vmin - 55%);
 
-        @include breakpoint(medium only) {
-          margin-top: 413px;
+        @include breakpoint(medium) {
+          padding-top: calc(100vmin - 65%);
         }
 
         @include breakpoint(large) {
-          margin-top: 500px;
+          padding-top: calc(100vmin - 55%);
+        }
+
+        @include breakpoint(xlarge up) {
+          padding-top: calc(50vmin - 10%);
         }
 
         @include quoted-content;
@@ -262,22 +394,20 @@ h1, h2, h3 {
   }
 
   h1 {
+    color: $gold;
     font: rem-calc(21px) unquote('/') rem-calc(18px) $oswald-bold-font;
 
     @include breakpoint(medium) {
-      font: 36px / 36px $oswald-bold-font;
+      font: rem-calc(36px) unquote('/') rem-calc(36px) $oswald-bold-font;
+      margin-bottom: 20px;
     }
-
-    color: $gold;
 
     @include breakpoint(large) {
+      margin: 0.67em 0;
       margin-top: 142px;
-      padding-left: 5px;
+      text-align: right;
+      padding-right: 10px;
     }
-  }
-
-  .hidden-anchor {
-    @include target-padding;
   }
 
   nav.top-menu {
@@ -287,12 +417,17 @@ h1, h2, h3 {
     @include breakpoint(medium only) {
       border-top: 2px solid $gold;
       border-bottom: 2px solid $gold;
-      padding-top: 20px;
-      padding-bottom: 20px;
+      padding-top: 15px;
+      padding-bottom: 13px;
     }
 
     @include breakpoint(large) {
       border-left: 2px solid $gold;
+      padding-bottom: 53px
+    }
+
+    @media screen and #{breakpoint(1025px)} and #{breakpoint(1110px down)} {
+      padding-bottom: 60px
     }
 
     // Little color-change hack
@@ -314,33 +449,8 @@ h1, h2, h3 {
     }
 
     ul:nth-child(1) {
-      // @include breakpoint(medium) {
-      //   margin-right: grid-column(2);
-      // }
-
-      // @include breakpoint(690px) {
-      //   margin-right: grid-column(3);
-      // }
-
-      // @include breakpoint(740px) {
-      //   margin-right: grid-column(4);
-      // }
-
-      // @include breakpoint(790px) {
-      //   margin-right: grid-column(5);
-      // }
-
-      // @include breakpoint(860px) {
-      //   margin-right: grid-column(6);
-      // }
-
-      // @include breakpoint(940px) {
-      //   margin-right: grid-column(7);
-      // }
-
       @include breakpoint(large) {
         margin-left: grid-column(1);
-        // margin-right: grid-column(3);
       }
 
 
@@ -351,43 +461,13 @@ h1, h2, h3 {
       }
     }
 
-    // ul:nth-child(2) {
-    //   @include breakpoint(medium) {
-    //     margin-right: grid-column(2);
-    //   }
-
-    //   @include breakpoint(690px) {
-    //     margin-right: grid-column(3);
-    //   }
-
-    //   @include breakpoint(740px) {
-    //     margin-right: grid-column(4);
-    //   }
-
-    //   @include breakpoint(790px) {
-    //     margin-right: grid-column(5);
-    //   }
-
-    //   @include breakpoint(860px) {
-    //     margin-right: grid-column(6);
-    //   }
-
-    //   @include breakpoint(940px) {
-    //     margin-right: grid-column(7);
-    //   }
-
-    //   @include breakpoint(large) {
-    //     margin-right: grid-column(3);
-    //   }
-    // }
-
     .slick-track {
       @include breakpoint(medium) {
         display: flex;
         flex-flow: row wrap;
 
         .slick-slide {
-          flex-basis: 30%;
+          flex-basis: 29%;
 
           &:nth-child(2) { order: 1; }
           &:nth-child(3) { order: 4; }
@@ -397,9 +477,26 @@ h1, h2, h3 {
           &:nth-child(7) { order: 5; }
           &:nth-child(8) { order: 8; }
           &:nth-child(9) { order: 11; }
-          &:nth-child(10) { order: 3; flex-basis: 40%; }
-          &:nth-child(11) { order: 6; flex-basis: 40%; }
-          &:nth-child(12) { order: 9; flex-basis: 40%; }
+          &:nth-child(10) { order: 3; flex-basis: 42%; }
+          &:nth-child(11) { order: 6; flex-basis: 42%; }
+          &:nth-child(12) { order: 9; flex-basis: 42%; }
+        }
+
+        &.changed-order {
+          .slick-slide {
+            flex-basis: 33%;
+            &:nth-child(2) { order: initial; margin-top: initial !important; }
+            &:nth-child(3) { order: initial; margin-top: initial !important;}
+            &:nth-child(4) { order: initial; margin-top: initial !important;}
+            &:nth-child(5) { order: initial; margin-top: initial !important;}
+            &:nth-child(6) { order: initial; margin-top: initial !important;}
+            &:nth-child(7) { order: initial; margin-top: initial !important;}
+            &:nth-child(8) { order: initial; margin-top: initial !important;}
+            &:nth-child(9) { order: initial; margin-top: initial !important;}
+            &:nth-child(10) { order: initial; margin-top: initial !important; }
+            &:nth-child(11) { order: initial; margin-top: initial !important;}
+            &:nth-child(12) { order: initial; margin-top: initial !important;}
+          }
         }
       }
 
@@ -414,9 +511,9 @@ h1, h2, h3 {
         .slick-slide {
           &:nth-child(5) { order: 10; margin-top: -35px; }
           &:nth-child(9) { order: 11; margin-top: -35px; }
-          &:nth-child(10) { order: 3; flex-basis: 40%; }
-          &:nth-child(11) { order: 6; flex-basis: 40%; }
-          &:nth-child(12) { order: 9; flex-basis: 40%; }
+          &:nth-child(10) { order: 3; flex-basis: 42%; }
+          &:nth-child(11) { order: 6; flex-basis: 42%; }
+          &:nth-child(12) { order: 9; flex-basis: 42%; }
         }
 
       }
@@ -424,16 +521,22 @@ h1, h2, h3 {
 
     ul li {
       list-style: none;
+      font-size: 16px;
+
+      @media screen and #{breakpoint(640px)} and #{breakpoint(695px down)} {
+        font-size: 14px;
+      }
+
       a {
         font: rem-calc(18px) unquote('/') rem-calc(22px) $oswald-bold-font;
         color: $black;
 
         @include breakpoint(medium only) {
-          font: 18px / 36px $oswald-bold-font;
+          font: em(18px) unquote('/') em(36px) $oswald-bold-font;
         }
 
         @include breakpoint(large) {
-          font: 21px / 32px $oswald-bold-font;
+          font: rem-calc(21px) unquote('/') rem-calc(32px) $oswald-bold-font;
         }
 
         &:hover, &:focus {
@@ -568,12 +671,12 @@ h1, h2, h3 {
 
     section.info {
       @include breakpoint(medium only) {
-        margin-left: 10px;
         margin-top: -10px;
       }
 
       @include breakpoint(large) {
         margin-top: 50px;
+        margin-right: -4px;
       }
 
       @include breakpoint(large) {
@@ -581,7 +684,7 @@ h1, h2, h3 {
       }
 
       h4 {
-        font: 27px / 30px $oswald-bold-font;
+        font: rem-calc(27px) unquote('/') rem-calc(30px) $oswald-bold-font;
         color: $gold;
         text-transform: uppercase;
         margin-bottom: 12px;
@@ -619,8 +722,18 @@ h1, h2, h3 {
       }
     }
 
+    @include breakpoint(medium) {
+      .slick-slide .row {
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      .slick-current + .slick-slide {
+        opacity: 0;
+      }
+    }
+
     article {
-      margin-left: 5px;
 
       @include breakpoint(medium) {
         margin-top: 47px;
@@ -628,7 +741,7 @@ h1, h2, h3 {
 
       @include breakpoint(large) {
         margin-top: 20px;
-        margin-left: calc(#{grid-column(1)} - 14px);
+        padding-left: calc(#{grid-column(1)} - 14px);
       }
 
       h2 {
@@ -822,6 +935,14 @@ h1, h2, h3 {
   background-repeat: no-repeat;
   background-size: cover;
 
+  @include breakpoint(large down) {
+    background-attachment: scroll;
+  }
+
+  @include breakpoint(large up) {
+    background-attachment: fixed;
+  }
+
   .content {
     padding-top: 208px;
     @include quoted-content;
@@ -905,13 +1026,14 @@ h1, h2, h3 {
 
   .b-cards {
     margin-left: grid-column(1);
-    padding-left: 14px;
+    padding-left: 5px;
 
     .b-card {
       position: relative;
 
       .wrap {
         min-height: 145px;
+        width: 191px;
       }
 
       .name {
@@ -973,6 +1095,59 @@ h1, h2, h3 {
       }
     }
   }
+
+  .slick-slider {
+    .slick-prev, .slick-next {
+      width: 59px;
+      height: 9px;
+      margin-top: 0px;
+
+      display: none !important; // default state
+
+      &.visible {
+        display: block !important;
+
+        animation-name: marginanimality-r;
+        animation-duration: 0.8s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+      }
+
+      @include breakpoint(medium down) {
+        display: none;
+      }
+
+      &:before {
+        content: '';
+      }
+    }
+    .slick-prev {
+      background-image: url('l-big-gold-arrow.png');
+      left: -80px;
+    }
+
+    .slick-next {
+      background-image: url('r-big-gold-arrow.png');
+      right: -62px;
+
+      &.visible {
+        display: block !important;
+
+        animation-name: marginanimality-l;
+        animation-duration: 0.8s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+      }
+
+      @media screen and #{breakpoint(1024px)} and #{breakpoint(1324px down)} {
+        display: none !important;
+
+        &.visible {
+          display: none !important;
+        }
+      }
+    }
+  }
 }
 
 .b-lawyers {
@@ -1002,23 +1177,25 @@ h1, h2, h3 {
   }
 
   .nav {
-    position: absolute;
-    margin-left: 163px;
+    float: right;
+    padding-right: 10px;
     margin-top: 40px;
-    z-index: 999;
 
     a {
       display: inline-block;
       width: 59px;
       height: 9px;
+      z-index: 999;
+      position: absolute;
 
       &.go-back {
-        background-image: url('l-big-gold-arrow.png');
-        margin-right: 17px;
+        background: url('l-big-gold-arrow.png') no-repeat;
+        margin-left: -55px;
+
       }
       &.go-next {
-        margin-left: 17px;
-        background-image: url('r-big-gold-arrow.png');
+        background: url('r-big-gold-arrow.png') no-repeat;
+        margin-left: 35px;
       }
     }
   }
@@ -1265,7 +1442,8 @@ h1, h2, h3 {
     }
 
     @include breakpoint(large) {
-      padding-left: 45px;
+      text-align: right;
+      padding-right: 10px;
 
       &:after {
         content: '';
@@ -1273,7 +1451,7 @@ h1, h2, h3 {
         width: 2px;
         height: 104px;
         background-color: $gold;
-        right: 31px;
+        right: -12px;
         top: 0;
       }
     }
@@ -1304,11 +1482,10 @@ h1, h2, h3 {
     }
 
     @include breakpoint(large) {
-      white-space: pre-wrap;
       color: $gold;
       font-family: $oswald-bold-font;
       font-size: rem-calc(18px);
-      padding-right: 20px;
+      padding-right: 14px;
 
       div {
         float: right;
@@ -1443,14 +1620,20 @@ h1, h2, h3 {
     }
 
     .send {
-      a {
-        font: rem-calc(14px) unquote('/') rem-calc(16px) $oswald-bold-font;
+      display: inline;
 
-        @include breakpoint(medium) {
-          font: 27px/27px $oswald-bold-font;
-        }
+      a {
+        display: inline;
         text-transform: uppercase;
         color: $black;
+
+        font: rem-calc(14px) unquote('/') rem-calc(17px) $oswald-bold-font;
+
+        @include breakpoint(medium) {
+          font-size: rem-calc(27);
+          line-height: rem-calc(18);
+          font-family: $oswald-bold-font;
+        }
 
         &:hover {
           color: $gold;
@@ -1557,7 +1740,6 @@ footer {
   }
 
   .address {
-    white-space: pre-wrap;
     letter-spacing: 2px;
 
     line-height: rem-calc(18px);
@@ -1568,31 +1750,36 @@ footer {
   }
 
   .map {
-    margin-top: 19px;
+    margin-top: rem-calc(19px);
 
     @include breakpoint(medium) {
-      margin-top: 50px;
+      margin-top: rem-calc(43px);
     }
 
     @include breakpoint(large) {
-      margin-top: 30px;
+      margin-top: rem-calc(30px);
     }
 
     .city-name {
-      margin-right: 30px;
+      margin-right: rem-calc(30px);
     }
 
     a.on-map-icon {
-      margin-bottom: -10px;
+      margin-bottom: rem-calc(-10px);
     }
   }
 
   nav.links {
+
+    @include breakpoint(medium) {
+      padding-left: 22%;
+    }
+
     ul > li {
       line-height: rem-calc(36px);
 
       &:last-child {
-        margin-top: 62px;
+        margin-top: rem-calc(62px);
       }
     }
   }
@@ -1606,59 +1793,132 @@ footer {
   }
 
   .copy {
-    font-size: 12px;
-    margin-top: 74px;
+    font-size: rem-calc(12);
+    margin-top: rem-calc(74);
 
     @include breakpoint(large) {
       font-size: rem-calc(18px);
-      margin-top: 67px;
+      margin-top: rem-calc(67);
     }
   }
 }
 
 .b-impressum {
-  margin-top: 106px;
-  margin-bottom: 106px;
+  margin-top: 45px;
+
+  @include breakpoint(medium) {
+    margin-top: 106px;
+    margin-bottom: 106px;
+  }
 
   h3 {
     color: $gold;
-    font: rem-calc(36px) unquote('/') rem-calc(36px) $oswald-bold-font;
-    text-align: right;
     padding-right: 10px;
+    font: rem-calc(18px) unquote('/') rem-calc(18px) $oswald-bold-font;
+
+    @include breakpoint(medium) {
+      font: rem-calc(36px) unquote('/') rem-calc(36px) $oswald-bold-font;
+    }
+
+    @include breakpoint(large) {
+      text-align: right;
+    }
   }
 
   section {
-    padding-left: grid-column(1);
+    @include breakpoint(large) {
+      padding-left: grid-column(1);
+
+      .js-impressum-slider .slick-list {
+        padding-left: 25px;
+        margin-left: -25px;
+      }
+    }
 
     h4 {
       display: inline-block;
-      padding-left: grid-column(1);
       color: $black;
-      font: rem-calc(36px) unquote('/') rem-calc(36px) $oswald-bold-font;
-      border-left: 2px solid $gold;
       margin: 0;
-      padding-top: 72px;
-      margin-bottom: 43px;
-      margin-left: - grid-column(1);
+      padding-top: 30px;
+      margin-bottom: 23px;
+      font: rem-calc(18px) unquote('/') rem-calc(22px) $oswald-bold-font;
 
       span {
-        font: rem-calc(18px) unquote('/') rem-calc(25px) $carrois-gothic-font;
+        font: rem-calc(14px) unquote('/') rem-calc(22px) $carrois-gothic-font;
+        display: block;
+        margin-top: 4px;
+      }
+
+      @include breakpoint(medium) {
+        margin-left: - grid-column(1);
+        padding-left: grid-column(1);
+        padding-top: 72px;
+        margin-bottom: 43px;
+        font: rem-calc(36px) unquote('/') rem-calc(36px) $oswald-bold-font;
+
+        span {
+          font: rem-calc(18px) unquote('/') rem-calc(25px) $carrois-gothic-font;
+        }
+      }
+
+      @include breakpoint(large) {
+        border-left: 2px solid $gold;
+
+        span {
+          margin-top: 0;
+          display: inline;
+        }
       }
     }
 
     p {
-      font-size: rem-calc(18px);
-      line-height: rem-calc(25px);
-      margin-bottom: 55px;
+      margin-bottom: 25px;
+      font-size: rem-calc(16px);
+      line-height: rem-calc(22px);
+
+      @include breakpoint(medium) {
+        font-size: rem-calc(18px);
+        line-height: rem-calc(25px);
+        margin-bottom: 55px;
+      }
     }
 
     dl, dt, dd {
-      font: rem-calc(17px) / rem-calc(30px) $oswald-bold-font;
+      font: rem-calc(16px) unquote('/') rem-calc(22px) $default-font;
+
+      @include breakpoint(medium) {
+        font: rem-calc(17px) unquote('/') rem-calc(30px) $oswald-bold-font;
+      }
+    }
+
+    @include breakpoint(small only) {
+      span.one-line {
+        display: block;
+        font-family: $default-font;
+      }
+
+      span.golden {
+        padding: 0 3px;
+      }
+
+      dt {
+        font-family: $oswald-bold-font;
+      }
+
+      dl {
+        margin-bottom: 25px;
+      }
     }
   }
 
   nav.pages {
-    margin-top: 53px;
+    @include breakpoint(small) {
+      margin-bottom: 25px;
+    }
+
+    @include breakpoint(medium) {
+      margin-top: 53px;
+    }
 
     li {
       display: inline-block;
@@ -1669,9 +1929,22 @@ footer {
       }
     }
 
+    .slick-track {
+      width: auto !important;
+      left: 0 !important;
+    }
+
+    .slick-slide {
+      width: auto !important;
+    }
+
     a {
-      font: $trade-gothic-light-font;
+      font-family: $default-font;
       color: $black;
+
+      @include breakpoint(small only) {
+        font-size: 17px;
+      }
 
       &.current {
         color: $gold;
@@ -1685,11 +1958,9 @@ footer {
   margin-bottom: 40px;
 
   @include breakpoint(medium) {
-    margin-top: 106px;
-    margin-bottom: 106px;
+    margin-top: 100px;
+    margin-bottom: 100px;
   }
-
-  @include target-padding;
 
   h3 {
     color: $gold;
@@ -1874,10 +2145,6 @@ footer {
   }
 }
 
-p {
-  font-family: $carrois-gothic-font;
-}
-
 a {
   text-decoration: none;
 
@@ -1888,6 +2155,14 @@ a {
     @include breakpoint(medium) {
       font: rem-calc(18px) unquote('/') rem-calc(25px) $oswald-bold-font;
     }
+  }
+
+  &[href^="mailto:"] {
+    color: inherit;
+  }
+
+  &[href^="tel:"], &[href^="fax:"] {
+    color: inherit;
   }
 }
 
@@ -2044,8 +2319,8 @@ label.file {
   }
 }
 
-._font-25 {
-  font-size: 25px !important;
+._font-24 {
+  font-size: rem-calc(24px) !important;
 }
 
 .slick-slider {
@@ -2065,4 +2340,8 @@ label.file {
 
 .opacity-1 {
   opacity: 1;
+}
+
+.golden {
+  color: $gold;
 }

@@ -49,7 +49,13 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
   config.sass.line_comments = false
 
+  # Adds unique hash string into file name
+  config.assets.digest = false # true
+  #config.x.webpacker[:digesting] = false # true
+
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  Slim::Engine.set_default_options pretty: true # false
 end

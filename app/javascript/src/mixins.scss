@@ -8,19 +8,23 @@
     text-align: center;
     font: rem-calc(12) unquote('/') rem-calc(20) $oswald-bold-font;
 
+    @media screen and #{breakpoint(500px)} and #{breakpoint(640px down)} {
+      font: rem-calc(20) unquote('/') rem-calc(32px) $oswald-bold-font;
+    }
+
     @include breakpoint(small only) {
       padding-left: $small-page-spacing;
       padding-right: $small-page-spacing;
     }
 
     @include breakpoint(medium only) {
-      font: 28px/48px $oswald-bold-font;
+      font: rem-calc(28) unquote('/') rem-calc(48px) $oswald-bold-font;
       padding-left: $medium-page-spacing;
       padding-right: $medium-page-spacing;
     }
 
     @include breakpoint(large) {
-      font: 32px/60px $oswald-bold-font;
+      font: rem-calc(32px) unquote('/') rem-calc(60px) $oswald-bold-font;
     }
   }
 
@@ -29,16 +33,20 @@
     text-align: center;
     font: rem-calc(9) unquote('/') rem-calc(25) $oswald-bold-font;
 
+    @media screen and #{breakpoint(500px)} and #{breakpoint(640px down)} {
+      font: rem-calc(13) unquote('/') rem-calc(30px) $oswald-bold-font;
+    }
+
     @include breakpoint(medium) {
-      font: 21px/60px $oswald-bold-font;
+      font: rem-calc(21px) unquote('/') rem-calc(60px) $oswald-bold-font;
     }
 
     &:before {
       position: relative;
       display: block;
       margin: 0 auto;
-      margin-top: 16px;
-      margin-bottom: 23px;
+      margin-top: rem-calc(16px);
+      margin-bottom: rem-calc(23px);
       clear: both;
       content: '';
       width: 332px;

@@ -10,21 +10,36 @@
     .b-top-menu
       .row
         .logo
-          = image_tag 'logo', width: '100%', height: 'auto'
-        .small-25.small-offset-6.columns.show-for-large
-          ul.b-menu
-            li
-              a href="#kompetenzen" Kompetenzen
-            li
-              a href="#team" Das team
-            li
-              a href="#karriere" karriere
-            li
-              a href="#kontakt" kontakt
-            li
-              a href="#kontakt" anfahrt
-            li
-              a href="#impressum" impressum
+          = image_tag 'logo.png', width: '100%', height: 'auto'
+        .small-25.small-offset-6.columns
+          .b-menu.show-for-large
+            ul
+              li
+                a href="#kompetenzen" Kompetenzen
+              li
+                a href="#philosophie" philosophie
+              li
+                a href="#team" Das team
+              li
+                a href="#karriere" karriere
+              li
+                a href="#kontakt" kontakt
+              li
+                a href="#impressum" impressum
+
+            section.contact.hide-for-large
+             dl
+              dt BIEBERSTEIN & STADLER <span> - Rechtsanwälte - </span>
+              dd.show-for-medium Einsteinstraße 16  <span class="golden">|</span>   76275 Ettlingen
+              dd.show-for-medium
+                a href="tel:0" T +49 (0) 7243 6056.0
+              dd.show-for-medium
+                a href="fax:0" F +49 (0)7243 6056.99
+              dd.show-for-medium
+                a href="mailto:info@b&s.de" info@b&s.de
+
+        .b-mobile-menu
+          a.open href="#{js_void}"
 
     //Slider
     .row.expanded.collapse
@@ -56,7 +71,7 @@
     div.hidden-anchor#kompetenzen-handels-und-gesellschaftsrecht
     div.hidden-anchor#kompetenzen-zwangsvollstreckung-forderungsbeitreibung
     .row.small-collapse.large-uncollapse
-      .small-31.large-offset-2.large-6.columns
+      .small-31.large-8.columns
         h1.clickable.js-default-competence KOMPETENZEN
       .small-31.large-21.columns.end
         .row.collapse
@@ -86,7 +101,7 @@
                 li
                   a.js-unclick [href="#kompetenzen-handels-und-gesellschaftsrecht" data-slide-id="11" slide="slide_11"] Handels und Gesellschaftsrecht
                 li
-                  a.js-unclick [href="#kompetenzen-zwangsvollstreckung-forderungsbeitreibung" data-slide-id="12" slide="slide_12"]
+                  a.js-unclick [href="#kompetenzen-zwangsvollstreckung----forderungsbeitreibung" data-slide-id="12" slide="slide_12"]
                     ' Zwangsvollstreckung &
                     br
                     ' Forderungsbeitreibung
@@ -96,7 +111,7 @@
         .b-article
           .js-competences-slider.hide-for-small-only
             div.slide[data-index="1"]
-              .row.small-collapse.large-uncollapse
+              .row.small-collapse
                 .large-offset-1.lage-7.columns.show-for-large
                 .small-31.large-22.columns
                   article
@@ -112,7 +127,7 @@
                         | Dafür stehen wir!  Allen Anliegen  bzw. Problemen kompetent und diskret vertreten werden – sei es nun außergerichtlich oder vor Gericht.
 
             div.slide[data-index="2"]
-              .row.flex-row.small-collapse.large-uncollapse
+              .row.flex-row.small-collapse
                 .small-31.large-offset-1.large-7.columns
                   section.info
                     h4.show-for-large Arbeitsrecht
@@ -140,7 +155,7 @@
                         | Dafür stehen wir!  Allen Anliegen  bzw. Problemen kompetent und diskret vertreten werden – sei es nun außergerichtlich oder vor Gericht.
 
             div.slide[data-index="3"]
-              .row.flex-row.small-collapse.large-uncollapse
+              .row.flex-row.small-collapse
                 .small-31.large-offset-1.large-7.columns
                   section.info
                     h4.show-for-large Baurecht
@@ -168,7 +183,7 @@
                         | Dafür stehen wir!  Allen Anliegen  bzw. Problemen kompetent und diskret vertreten werden – sei es nun außergerichtlich oder vor Gericht.
 
             div.slide[data-index="4"]
-              .row.flex-row.small-collapse.large-uncollapse
+              .row.flex-row.small-collapse
                 .small-31.large-offset-1.large-7.columns
                   section.info
                     h4.show-for-large Familienrecht
@@ -196,7 +211,7 @@
                         | Dafür stehen wir!  Allen Anliegen  bzw. Problemen kompetent und diskret vertreten werden – sei es nun außergerichtlich oder vor Gericht.
 
             div.slide[data-index="5"]
-              .row.flex-row.small-collapse.large-uncollapse
+              .row.flex-row.small-collapse
                 .small-31.large-offset-1.large-7.columns
                   section.info
                     h4.show-for-large Erbrecht
@@ -224,7 +239,7 @@
                         | Dafür stehen wir!  Allen Anliegen  bzw. Problemen kompetent und diskret vertreten werden – sei es nun außergerichtlich oder vor Gericht.
 
             div.slide[data-index="6"]
-              .row.flex-row.small-collapse.large-uncollapse
+              .row.flex-row.small-collapse
                 .small-31.large-offset-1.large-7.columns
                   section.info
                     h4.show-for-large Verkehrsrecht
@@ -252,7 +267,7 @@
                         | Dafür stehen wir!  Allen Anliegen  bzw. Problemen kompetent und diskret vertreten werden – sei es nun außergerichtlich oder vor Gericht.
 
             div.slide[data-index="7"]
-              .row.flex-row.small-collapse.large-uncollapse
+              .row.flex-row.small-collapse
                 .small-31.large-offset-1.large-7.columns
                   section.info
                     h4.show-for-large Vertragsrecht
@@ -280,7 +295,7 @@
                         | Dafür stehen wir!  Allen Anliegen  bzw. Problemen kompetent und diskret vertreten werden – sei es nun außergerichtlich oder vor Gericht.
 
             div.slide[data-index="8"]
-              .row.flex-row.small-collapse.large-uncollapse
+              .row.flex-row.small-collapse
                 .small-31.large-offset-1.large-7.columns
                   section.info
                     h4.show-for-large Wirtschaftsrecht
@@ -308,7 +323,7 @@
                         | Dafür stehen wir!  Allen Anliegen  bzw. Problemen kompetent und diskret vertreten werden – sei es nun außergerichtlich oder vor Gericht.
 
             div.slide[data-index="9"]
-              .row.flex-row.small-collapse.large-uncollapse
+              .row.flex-row.small-collapse
                 .small-31.large-offset-1.large-7.columns
                   section.info
                     h4.show-for-large Datenschutz
@@ -336,7 +351,7 @@
                         | Dafür stehen wir!  Allen Anliegen  bzw. Problemen kompetent und diskret vertreten werden – sei es nun außergerichtlich oder vor Gericht.
 
             div.slide[data-index="10"]
-              .row.flex-row.small-collapse.large-uncollapse
+              .row.flex-row.small-collapse
                 .small-31.large-8.columns
                   section.info
                     h4.show-for-large Mietrecht/WEG-Recht
@@ -364,7 +379,7 @@
                         | Dafür stehen wir!  Allen Anliegen  bzw. Problemen kompetent und diskret vertreten werden – sei es nun außergerichtlich oder vor Gericht.
 
             div.slide[data-index="11"]
-              .row.flex-row.small-collapse.large-uncollapse
+              .row.flex-row.small-collapse
                 .small-31.large-offset-1.large-7.columns
                   section.info
                     h4.show-for-large Handels- und Gesellschaftsrecht
@@ -392,10 +407,10 @@
                         | Dafür stehen wir!  Allen Anliegen  bzw. Problemen kompetent und diskret vertreten werden – sei es nun außergerichtlich oder vor Gericht.
 
             div.slide[data-index="12"]
-              .row.flex-row.small-collapse.large-uncollapse
+              .row.flex-row.small-collapse
                 .small-31.large-8.columns
                   section.info
-                    h4.show-for-large._font-25
+                    h4.show-for-large._font-24
                       | Zwangsvollstreckung &
                       br
                       | Forderungsbeitreibung
@@ -427,7 +442,7 @@
             a.go-next href="#{js_void}"
 
   // Blindtext
-  .b-blindtext
+  #philosophie.b-blindtext
     .row.small-collapse.large-uncollapse
       .small-31.large-offset-2.large-6.columns
         h2 Blindtext
@@ -492,7 +507,7 @@
 
       .b-cards.show-for-large
         .small-offset-8.small-23.columns.end
-          .row.large-up-4
+          .row.large-up-4.js-team-nav
             .column.column-block
               .b-card
                 = image_tag 'person-1.jpg', width: 191, height: 191
@@ -571,6 +586,28 @@
                   span.border
                     | ]
 
+
+            .column.column-block
+              .b-card
+                = image_tag 'person-1.jpg', width: 191, height: 191
+                .wrap
+                  .name
+                    | Max Mustermann
+                  .position Rechtsanwalt
+                  .subtitle
+                    ' Fachanwalt für Arbeitsrecht
+                    br
+                    ' Fachanwalt für Handels-
+                    br
+                    ' und Gesellschaftsrecht
+                a.js-goto-person.open[href="#die-anwalte" data-slide="4"]
+                  span.border
+                    | [
+                  span.plus
+                    | +
+                  span.border
+                    | ]
+
   #die-anwalte.b-lawyers
     .row.small-collapse.large-uncollapse
       .large-offset-2.large-6.columns.show-for-large
@@ -598,7 +635,7 @@
                 br
                 br
               .email Stefan.Bohnacker@b-s-kanzlei.de
-              .phone Telefon: 07243-7665-0 <br class="hide-for-medium"> <span class="show-for-medium">//</span> Telefax: 07243-7665-10
+              .phone Telefon: <a href="tel:07243-7665-0">07243-7665-0</a> <br class="hide-for-medium"> <span class="show-for-medium">//</span> Telefax: <a href="tel:07243-7665-10">07243-7665-10</a>
               a.opener.hide-for-large href="#{js_void}"
             .about-text.medium-order-4.show-for-large
               p
@@ -710,10 +747,10 @@
                 = link_to 'Vita [PDF]', 'pdf/pdf-sample.pdf', class: 'pdf', target: '_blank'
 
   #kontakt.b-contact
-    .row.collapse
-      .small-31.medium-8.large-offset-3.large-6.columns
+    .row.small-collapse.large-uncollapse
+      .small-31.medium-7.large-offset-2.large-6.columns
         h2 Kontakt
-      .small-31.medium-23.columns.hide-for-large
+      .small-31.medium-24.columns.hide-for-large
         .contact-info
           .company-name BIEBERSTEIN & STADLER
           .address Einsteinstraße 16, 76275 Ettlingen
@@ -732,10 +769,11 @@
             | Einsteinstrase 16
               76275 Ettlingen
           .phones
-            ' T +49 (0) 7243 6056.0
+            a[href="tel:07243-7665-0" rel="nofollow"] T +49 (0) 7243 6056.0
             br
-            ' F +49 (0)7243 6056.99
-          .email info@b&s.de
+            a[href="fax:+49.7243.6056.99" rel="nofollow"] F +49 (0)7243 6056.99
+          .email
+            a href="mailto:info@b&s.de" info@b&s.de
           div
             a.on-map.icon.js-show-map href="#map"
 
@@ -801,42 +839,52 @@
               .copy.show-for-medium © 2017 Bieberstein & Stadler
 
   #impressum.b-impressum.hide
-    .row
-      .large-offset-2.large-6.columns
+    .row.small-collapse.large-uncollapse
+      .small-31.large-offset-2.large-6.columns
         h3 Impressum
-      .large-21.columns.end
+      .small-31.large-21.columns.end
         section
           .row.collapse
-            .small-31.columns
-                h4
-                  ' BIEBERSTEIN & STADLER
-                  span Rechtsanwalte PartmbB
-                p
-                  | Die nachfolgenden Ausfuhrungen und Erlauterungen entsprechen den Anforderungen nach dem Telemediengesetz und der Dienstleistungs-Informationspflichten-Verordnung (DL-InfoV): Verantwortlich im Sinne des Presserechts und des § 5 Telemediengesetz neuer Fassung:
+            .js-impressum-slider
+              .item-1
+                .small-31.columns
+                    h4
+                      ' BIEBERSTEIN & STADLER
+                      span Rechtsanwalte PartmbB
+                    p
+                      | Die nachfolgenden Ausfuhrungen und Erlauterungen entsprechen den Anforderungen nach dem Telemediengesetz und der Dienstleistungs-Informationspflichten-Verordnung (DL-InfoV): Verantwortlich im Sinne des Presserechts und des § 5 Telemediengesetz neuer Fassung:
+
+                .row.collapse
+                  .small-31.medium-15.columns
+                    dl
+                      dt BIEBERSTEIN & STADLER <span class="one-line"> Rechtsanwalte PartmbB </span>
+                      dd Landgericht Karlsruhe Gerichtsfach 95
+                      dd AG Mannheim <span class="golden">|</span> PR 700297
+                      dd St.Nr. 31034/00174
+
+                  .small-31.medium-15.columns
+                    dl
+                      dt <span class="one-line">Partner:</span> Mirko Stadler <span class="golden">|</span> Florian Bieberstein
+                      dd Einsteinstr. 16 <span class="golden">|</span> 76275 Ettlingen
+                      dd Telefon: 07243-7665-0 <span class="golden">|</span> Telefax: 07243-7665-10
+                      dd E-Mail: info@b-s-kanzlei.de <span class="golden">|</span> www.b-s-kanzlei.de
+
+              .item-2
+                .small-31.columns
+                  h4
+                    ' BIEBERSTEIN & STADLER
+                    span Rechtsanwalte PartmbB
+                  p
+                    | Die nachfolgenden Ausfuhrungen und Erlauterungen entsprechen den Anforderungen nach dem Telemediengesetz und der Dienstleistungs-Informationspflichten-Verordnung (DL-InfoV): Verantwortlich im Sinne des Presserechts und des § 5 Telemediengesetz neuer Fassung:
 
           .row.collapse
-            .small-16.columns
-              dl
-                dt BIEBERSTEIN & STADLER Rechtsanwalte PartmbB
-                dd Landgericht Karlsruhe Gerichtsfach 95
-                dd AG Mannheim | PR 700297
-                dd St.Nr. 31034/00174
-
-            .small-15.columns
-              dl
-                dt Partner: Mirko Stadler | Florian Bieberstein
-                dd Einsteinstr. 16 | 76275 Ettlingen
-                dd Telefon: 07243-7665-0 | Telefax: 07243-7665-10
-                dd E-Mail: info@b-s-kanzlei.de | www.b-s-kanzlei.de
-
-          .row.collapse
             .small-31.columns
-              nav.pages
+              nav.pages.js-impressum-pages
                 ul
                   li
-                    a.current href="#{js_void}" [1]
+                    a.current data-slide-id="1" slide="slide_1" href="#{js_void}" [1]
                   li
-                    a href="#{js_void}" [2]
+                    a data-slide-id="2" slide="slide_2" href="#{js_void}" [2]
                   li
                     a href="#{js_void}" [3]
                   li
