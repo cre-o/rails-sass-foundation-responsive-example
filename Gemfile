@@ -34,7 +34,6 @@ gem 'jbuilder', '~> 2.5'
 
 # Templates
 gem 'slim-rails', '~> 3.1.2'
-
 gem 'active_link_to'
 
 # CSS features
